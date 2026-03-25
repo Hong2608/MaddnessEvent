@@ -14,7 +14,7 @@ import jakarta.annotation.PostConstruct;
 @SpringBootApplication
 @RestController
 @Hidden // Hide this controller from the Swagger UI
-public class PizzaApplication {
+public class MadnessEventsApplication{
 
 	@Autowired
 	private MenuService menuService;
