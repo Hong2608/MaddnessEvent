@@ -1,10 +1,8 @@
-# Pizzeria Reference Project (PizzaRP)
+# Maddness Event
 
-This is a minimal Pizzeria Reference Project (PizzaRP) as a template for students. 
+MadnessEvents is a dynamic and specialized organization in the planning of techno and rave events across Switzerland, for its own high energy and quick growing community. To expand its reach across young people and strengthen the involvement of its audience, MadnessEvents decided to release its own brand-new website. This platform is planned to be the main destination where customers can easily buy tickets for future upcoming events, buy the exclusive branded merchandise, and receive news about the future events, all these features in a unified digital space that reflects the unique and vibrant identity of the brand. 
+The aim of the creation of a web shop is then to satisfy those needs, giving MadnessEvents the full control upon its business and on the brand representation towards the full user experience. Furthermore, the techno and rave industry represents a promising market opportunity, with a growing demand of memorable and impactful experiences and exclusive branded merchandise, related to the continuous growth of the business since 2020. The web shop will then exploit this opportunity, not only by facilitating tickets sales, but also by offering limited editions merchandise items, to capture the unique atmosphere of each event and performer. The website will also represent essential details like DJs’ background and information, the specifics of the venue, the activities in program, and finally a full monthly schedule. The website will be optimized to handle the peaks of users traffic, especially during the release of either tickets or merchandise, and will be characterized by a vibrant and attractive techno-themed interface. As the community will keep on growing in number, this platform has the potential to grow with it, by integrating new functionalities like the sales of early access privileges, exclusive content, and loyalty rewards.
 
-[![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-
-> 🚧: **This is a template project**: Make sure you adapt this documentation and the source code in this project according to your needs and use case. Comments are provided with "🚧:". Do not leave these comments in your final submission!
 
 #### Contents:
 - [Analysis](#analysis)
@@ -42,12 +40,16 @@ PizzaRP (Pizzeria Reference Project) is the smallest possible and lightweight de
 
 ### Use Case
 
-![](images/use-case.png)
-
-- UC-1 [Show all the Pizza]: Admin can retrieve all the pizza on the menu
-- UC-2 [Show a Pizza]: Admin can retrieve the information on a specific pizza.
-- UC-3 [Edit a Pizza]: Admin can create, update, and delete pizzas from the menu.
-- UC-4 [Show Current Location Offer]: User can retrieve special menu by location
+- UC-1 [View events ] User can see detailed information about a specific event (date, venue, DJ, price) 
+- UC-2 [Purchase tickets] User can buy tickets for an event through the website 
+- UC-3 [Create new event] Admin can create a new event with all details (date, DJ, venue, price) 
+- UC-4 [Download e-ticket] User can download e-tickets directly after payment 
+- UC-5 [Browse all products] User can view all merchandise item on website 
+- UC-6 [View product details ] User can see specific product information (price, image, size, color, description) 
+- UC-7 [Add product to cart] User can select product and add to shopping cart 
+- UC-8 [Create new product] Admin can create a new merchandise item to the online shop 
+- UC-9 [View order history] User can see their past purchases and order status 
+- UC-10 [Process order] User can complete purchase through checkout
 
 ## Design
 > 🚧: Keep in mind the Corporate Identity (CI); you shall decide appropriately the color schema, graphics, typography, layout, User Experience (UX), and so on.
