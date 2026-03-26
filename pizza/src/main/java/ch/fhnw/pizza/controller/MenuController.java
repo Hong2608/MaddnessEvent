@@ -1,8 +1,9 @@
-package ch.fhnw.pizza.controller;
+package ch.fhnw.madnessevents.controller;
 
-import ch.fhnw.pizza.business.service.MenuService;
-import ch.fhnw.pizza.data.domain.Menu;
-import ch.fhnw.pizza.data.domain.Pizza;
+
+import ch.fhnw.madnessevents.business.service.MenuService;
+import ch.fhnw.madnessevents.data.domain.Menu;
+import ch.fhnw.madnessevents.data.domain.Pizza;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
