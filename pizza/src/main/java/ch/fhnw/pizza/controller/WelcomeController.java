@@ -1,4 +1,4 @@
-package ch.fhnw.pizza.controller;
+package ch.fhnw.madnessevents.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +14,8 @@ public class WelcomeController {
     @GetMapping(value="/")
     public String getWelcomeString() {
         
-        return "Hello, welcome to our Pizzeria!";
+       
+        return "Welcome to MadnessEvents!";
     }
 
     @GetMapping(value="/user")
