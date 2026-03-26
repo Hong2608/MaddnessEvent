@@ -1,4 +1,4 @@
-package ch.fhnw.madnessevent.data.domain;
+package ch.fhnw.madnessevents.data.domain;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.Column;
