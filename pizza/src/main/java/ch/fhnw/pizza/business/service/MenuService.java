@@ -5,10 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ch.fhnw.pizza.data.domain.Menu;
-import ch.fhnw.pizza.data.domain.Pizza;
-import ch.fhnw.pizza.data.repository.PizzaRepository;
-
+import ch.fhnw.madnessevents.data.domain.Menu;
+import ch.fhnw.madnessevents.data.domain.Pizza;
+import ch.fhnw.madnessevents.data.repository.PizzaRepository;
 @Service
 public class MenuService {
 
