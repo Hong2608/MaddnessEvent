@@ -178,12 +178,23 @@ Alternatively, you can deploy your application to a free PaaS like [Render](http
 #### License
 - [Apache License, Version 2.0](blob/master/LICENSE)
 
-- Initial Backend Setup
-The backend was initialized using the provided Spring Boot reference project.
-Tasks completed:
--	Renamed application to MadnessEvents
--	Updated package structure to ch.fhnw.madnessevents
--	Fixed imports and dependencies
--	Ensured application runs successfully
--	Tested backend in GitHub Codespaces
+Backend Technology
+The backend of the MadnessEvents application is based on Spring Boot and was initialized by adapting the provided reference project.
+The application currently uses the following technologies and dependencies:
+
+- Spring Boot
+- Spring Data JPA
+- H2 Database Engine
+- Spring Web
+- Spring Security
+- OpenAPI / Swagger
+
+For the initial backend setup, the reference structure was reused and adapted to the MadnessEvents project. The package structure and application naming were updated to match the new project domain.
+The backend was successfully tested in GitHub Codespaces and runs on port 8080.
+Database Setup
+The application uses an H2 database for development and testing purposes. Placeholder data is initialized during startup to simplify testing of the backend without requiring manual data insertion.
+
+Notes
+At this stage, the backend setup provides the technical foundation for the next milestones, including implementation of web services, authentication, and integration with the frontend.
+
 
