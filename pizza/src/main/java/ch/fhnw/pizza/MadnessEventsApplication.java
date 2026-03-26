@@ -1,4 +1,4 @@
-package ch.fhnw.pizza;
+package ch.fhnw.maddnessevent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
