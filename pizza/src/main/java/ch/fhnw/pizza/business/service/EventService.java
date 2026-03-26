@@ -5,9 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ch.fhnw.madnessevents.data.domain.Menu; 
-import ch.fhnw.madnessevents.data.domain.Event;
-import ch.fhnw.madnessevents.data.repository.EventRepository;
+import ch.fhnw.madnessevents.data.domain.Menu;
+import ch.fhnw.madnessevents.data.domain.Pizza;
+import ch.fhnw.madnessevents.data.repository.PizzaRepository;
+
 @Service
 public class MenuService {
 
@@ -29,7 +30,7 @@ public class MenuService {
     }
 
     public Pizza addPizza(Pizza pizza) throws Exception {
-        if(pizza.getPizzaName() != null) {
+        if (pizza.getPizzaName() != null) {
             if (pizzaRepository.findByPizzaName(pizza.getPizzaName()) == null)
                 return pizzaRepository.save(pizza);
             throw new Exception("Pizza " + pizza.getPizzaName() + " already exists");
@@ -39,10 +40,10 @@ public class MenuService {
 
     public Pizza updatePizza(Long id, Pizza pizza) throws Exception {
         Pizza pizzaToUpdate = pizzaRepository.findById(id).get();
-        if(pizzaToUpdate != null) {
-            if(pizza.getPizzaName() != null)
+        if (pizzaToUpdate != null) {
+            if (pizza.getPizzaName() != null)
                 pizzaToUpdate.setPizzaName(pizza.getPizzaName());
-            if(pizza.getPizzaToppings() != null)
+            if (pizza.getPizzaToppings() != null)
                 pizzaToUpdate.setPizzaToppings(pizza.getPizzaToppings());
             return pizzaRepository.save(pizzaToUpdate);
         }
@@ -50,18 +51,17 @@ public class MenuService {
     }
 
     public void deletePizza(Long id) throws Exception {
-        if(pizzaRepository.existsById(id)) {
+        if (pizzaRepository.existsById(id)) {
             pizzaRepository.deleteById(id);
         } else
             throw new Exception("Pizza with id " + id + " does not exist");
     }
 
-    //Business Logic to get current offer according to the location of the user requesting the menu
     private String getCurrentOffer(String location) {
         String currentOffer = "No special offer for your location. Do check back again.";
-        if("Basel".equalsIgnoreCase(location))
+        if ("Basel".equalsIgnoreCase(location))
             currentOffer = "10% off on all large pizzas!!!";
-        else if("Brugg".equalsIgnoreCase(location))
+        else if ("Brugg".equalsIgnoreCase(location))
             currentOffer = "Two for the price of One on all small pizzas!!!";
         return currentOffer;
     }
@@ -74,6 +74,4 @@ public class MenuService {
         menu.setCurrentOffer(currentOffer);
         return menu;
     }
-
-        
 }
