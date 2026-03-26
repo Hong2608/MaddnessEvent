@@ -177,3 +177,13 @@ Alternatively, you can deploy your application to a free PaaS like [Render](http
 
 #### License
 - [Apache License, Version 2.0](blob/master/LICENSE)
+
+- Initial Backend Setup
+The backend was initialized using the provided Spring Boot reference project.
+Tasks completed:
+-	Renamed application to MadnessEvents
+-	Updated package structure to ch.fhnw.madnessevents
+-	Fixed imports and dependencies
+-	Ensured application runs successfully
+-	Tested backend in GitHub Codespaces
+
