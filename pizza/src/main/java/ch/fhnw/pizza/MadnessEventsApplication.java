@@ -1,4 +1,4 @@
-package ch.fhnw.maddnessevent;
+package ch.fhnw.maddnessevents;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
