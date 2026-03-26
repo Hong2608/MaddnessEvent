@@ -1,4 +1,4 @@
-package ch.fhnw.pizza.business.service;
+package ch.fhnw.madnessevents.business.service;
 
 import java.util.List;
 
