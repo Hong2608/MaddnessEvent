@@ -1,5 +1,5 @@
 
-package ch.fhnw.madnessevent.data.domain;
+package ch.fhnw.madnessevents.data.domain;
 
 import java.util.List;
 
