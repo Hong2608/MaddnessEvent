@@ -1,4 +1,4 @@
-package ch.fhnw.maddnessevents;
+package ch.fhnw.madnessevents;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ch.fhnw.pizza.business.service.MenuService;
-import ch.fhnw.pizza.data.domain.Pizza;
+import ch.fhnw.madnessevents.business.service.MenuService;
+import ch.fhnw.madnessevents.data.domain.Pizza;
 import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.annotation.PostConstruct;
 
@@ -20,7 +20,7 @@ public class MadnessEventsApplication{
 	private MenuService menuService;
 
 	public static void main(String[] args) {
-		SpringApplication.run(PizzaApplication.class, args);
+		SpringApplication.run(MadnessEventsApplication.class, args);
 	}
 	
 
