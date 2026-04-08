@@ -27,16 +27,21 @@ The aim of the creation of a web shop is then to satisfy those needs, giving Mad
 
 ### Scenario
 
-PizzaRP (Pizzeria Reference Project) is the smallest possible and lightweight demonstration tool allowing the pizzaiolo (Role: Admin) to manage its pizza catalog. 
+Maddness Event
 
 ### User Stories
-1. As an Admin, I want to have a Web app to use on different mobile devices and desktop computers.
-2. As an Admin, I want to see a consistent visual appearance to navigate easily, and it should look consistent.
-3. As an Admin, I want to use list views to explore and read my business data.
-4. As an Admin, I want to use edit and create views to maintain my business data.
-5. As an Admin, I want to log-in so that I can authenticate myself.
-6. As a User, I want to use list views so that I can access public pages.
-7. (Optional) As a User, I want to authenticate myself so that I can read my personal and confidential data.
+1. As an Admin, I want to create, update, and modify event and ticket information, so that users always see accurate event details and ticket availability. 
+2. As an Admin, I want to update and manage merchandise information on the website, so that users can view and purchase the correct products. 
+3. As an Admin, I want to generate reports about user activity on the website, so that I can analyze customer behavior. 
+4. As an Admin, I want to export reports about user activity on the website, so that I can use the data for business analysis and decision-making. 
+5. As a Visitor, I want to create an account on the website, so that I can purchase tickets, buy merchandise, and follow upcoming events. 
+6. As a registered user, I want to log in to my account so that I can access my personal information and make purchases. 
+7. As a User, I want to view information about upcoming events and available tickets, so that I can decide which event I want to attend. 
+8. As a user, I want to browse merchandise such as accessories, clothing, and limited-edition items, so that I can buy products related to events. 
+9. As a user, I want to search for merchandise using keywords, so that I can quickly find specific products I am interested in. 
+10. As a user, I want to add, remove, or update items in my shopping cart, so that I can control the products and quantities before purchasing. 
+11. As a user, I want to complete the purchase of tickets or merchandise from my cart, so that I can attend events and receive my selected products. 
+12. As a user, I want to subscribe to the MadnessEvents newsletter, so that I can receive updates about upcoming events and new merchandise. 
 
 ### Use Case
 
