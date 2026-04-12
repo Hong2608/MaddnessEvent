@@ -6,6 +6,7 @@ The aim of the creation of a web shop is then to satisfy those needs, giving Mad
 
 #### Contents:
 - [Analysis](#analysis)
+  - [Project Analysis](#project-analysis)
   - [Scenario](#scenario)
   - [User Stories](#user-stories)
   - [Use Case](#use-case)
@@ -25,9 +26,33 @@ The aim of the creation of a web shop is then to satisfy those needs, giving Mad
 
 
 
+### Project Analysis
+
+MadnessEvent operates in a market where audience attention is strongly influenced by visual identity, speed of access to information, and ease of purchase. The website must therefore do more than present static information. It has to support the brand commercially and communicate the event experience clearly enough that users can move from discovery to purchase without friction.
+
+The current business need is a single digital platform that combines event visibility, brand storytelling, and commercial interaction. At present, a fragmented flow would force users to search for event details, tickets, merchandise, and updates across multiple channels. This increases the risk of lost sales, inconsistent information, and weaker brand control.
+
+The analysis identifies three main requirements for the planned website:
+
+- It must present upcoming events clearly, with enough detail for users to decide whether they want to attend.
+- It must support a commercial journey where users can buy tickets and branded merchandise in a structured and trustworthy way.
+- It must reflect the visual identity of MadnessEvent through a consistent techno-inspired interface that differentiates the brand from generic event websites.
+
+From a user perspective, the most important quality attributes are usability, mobile responsiveness, visual consistency, and clear navigation. From a business perspective, the most important goals are stronger brand positioning, direct customer reach, and support for ticket and merchandise sales.
+
+This makes the website a business platform, not only a promotional page. The early design work therefore has to validate both the structure of the content and the logic of the main user journeys before implementation starts.
+
 ### Scenario
 
-Maddness Event
+MadnessEvent is a growing organizer of techno and rave events in Switzerland. As its audience expands, the organization needs a dedicated website that acts as the main entry point for customers, followers, and potential buyers. The website should allow visitors to discover future events, understand the lineup and venue details, explore official merchandise, and engage with the brand in a coherent online environment.
+
+The problem today is that users do not have one structured platform where all relevant information and purchase options are available together. Event communication, product promotion, and brand presentation are harder to manage when they are spread across separate channels. This weakens the customer journey and limits the organization's control over how its brand is experienced.
+
+The proposed solution is a web platform that brings together event discovery, event detail pages, ticket purchase paths, merchandise browsing, and general brand information. The website should work on mobile and desktop devices and should be designed for periods of high traffic, especially when new tickets or limited products are released.
+
+The scenario assumes a target audience of young, digitally active users who expect fast access to information, visually engaging design, and smooth navigation. The website must therefore emphasize strong first impressions, clear content hierarchy, and direct calls to action such as viewing event details, buying tickets, or browsing merchandise.
+
+In later phases, the platform can evolve with more advanced features such as account-based services, loyalty rewards, premium access, or exclusive digital content. For the current milestone, the scenario defines the business context and user environment that guide the prototype.
 
 ### User Stories
 1. As an Admin, I want to create, update, and modify event and ticket information, so that users always see accurate event details and ticket availability. 
@@ -65,7 +90,37 @@ Maddness Event
 Starting from the home page, we can visit different pages. Available public pages are visible in the menu...
 
 ### Prototype
-> 🚧: A prototype can be designed using placeholder text/figures in Budibase. You don't need to connect the front-end to back-end in the early stages of the project development.
+
+The prototype is intended to validate the page structure, navigation flow, and main user journey before backend development. At this stage, realistic placeholder data is sufficient. The prototype does not need live integration, but it should clearly show how a visitor moves through the MadnessEvent website.
+
+The prototype should use a consistent navigation bar on all main pages. The navigation should include:
+
+- `Homepage`
+- `DJs`
+- `Tickets`
+- `Shop`
+
+The prototype should include these main screens:
+
+1. `Homepage`: The homepage is the entry point of the website. It should welcome users to MadnessEvent, show the newest upcoming event, include a strong event photo, and provide a clear `Book ticket here!` action. From this page, users should be able to navigate directly to DJs, tickets, and the shop.
+2. `DJs page`: The DJs page should present a list of DJs. Each DJ entry should lead to DJ information, so visitors can learn more about the performers connected to the events.
+3. `Tickets page`: The tickets page should show the upcoming events. Each event card should include a photo, date, location, DJ, number of tickets available, and price. This page supports the main ticket discovery and booking flow.
+4. `Login page`: The login page should allow returning or registered users to access their account. In the prototype, this page can be represented with a simple login form and does not need a working authentication system yet.
+5. `Shop page`: The shop page should present MadnessEvent merchandise. It should include product categories such as apparel and accessories. Apparel examples include T-shirts, hoodies, hats, headwear, and tank tops. Accessory examples include branded hats, wristbands, stickers, and lighters. Product cards should show a photo, description, color, size, and price.
+
+Each main page should also include a footer with `Contact us`, `FAQs`, and social media links. This keeps the user journey consistent and gives visitors access to basic support and communication options from every page.
+
+The prototype should validate these flows:
+
+- User enters the homepage and sees the newest upcoming event.
+- User uses the navigation bar to move between homepage, DJs, tickets, and shop.
+- User opens the DJs page and views DJ information.
+- User opens the tickets page and compares event details before booking.
+- User uses the booking action to move toward ticket purchase.
+- User opens the login page when account access is required.
+- User browses the shop and compares merchandise by category, description, size, color, and price.
+
+The design direction should follow a dark, high-contrast, club-inspired visual language with strong typography and image-led sections. This matches the techno and rave identity of MadnessEvent and makes the prototype useful for testing both navigation and brand presentation.
 
 ### Domain Design
 > 🚧: Provide a picture and describe your domain model; you may use Entity-Relationship Model or UML class diagram. Both can be created in Visual Paradigm - we have an academic license for it.
