@@ -1,105 +1,160 @@
 # MadnessEvent Spring Boot Application
 
-A Spring Boot application for managing madness events.
+A Spring Boot backend application for managing MadnessEvent events, DJs, merchandise products, and first ticket bookings.
 
 ## Project Structure
 
-```
+```text
 MadnessEvent-boot/
-├── pom.xml                          # Maven configuration
-├── src/
-│   ├── main/
-│   │   ├── java/ch/fhnw/madnessevent/
-│   │   │   ├── MadnessEventApplication.java      # Main Spring Boot entry point
-│   │   │   └── controller/
-│   │   │       └── HealthController.java         # REST API endpoints
-│   │   └── resources/
-│   │       └── application.properties            # Application configuration
-│   └── test/
-│       └── java/ch/fhnw/madnessevent/
-│           └── MadnessEventApplicationTests.java # Unit tests
-└── .gitignore
+|-- pom.xml                                      # Maven configuration and dependencies
+|-- mvnw / mvnw.cmd                              # Maven wrapper scripts
+|-- src/
+|   |-- main/
+|   |   |-- java/ch/fhnw/madnessevent/
+|   |   |   |-- MadnessEventApplication.java     # Main Spring Boot entry point
+|   |   |   |-- DataInitializer.java             # Sample data for testing the first services
+|   |   |   |-- business/
+|   |   |   |   |-- exception/                   # Custom exceptions for API errors
+|   |   |   |   `-- service/                     # Business/service layer
+|   |   |   |-- controller/                      # REST and dashboard controllers
+|   |   |   |   `-- dto/                         # Request/response DTOs
+|   |   |   `-- data/
+|   |   |       |-- domain/                      # JPA entities
+|   |   |       `-- repository/                  # Spring Data JPA repositories
+|   |   `-- resources/
+|   |       |-- application.properties           # Application, H2, and JPA configuration
+|   |       |-- static/                          # CSS and JavaScript files
+|   |       `-- templates/                       # Thymeleaf templates
+|   `-- test/
+|       `-- java/ch/fhnw/madnessevent/
+|           `-- MadnessEventApplicationTests.java
+`-- README.md
 ```
 
 ## Technologies
 
-- **Java 17**
-- **Spring Boot 3.2.2**
-- **Maven**
-- **H2 Database**
-- **Spring Data JPA**
-- **Project Lombok**
+- Java 17
+- Spring Boot 3.2.2
+- Maven
+- Spring Web
+- Spring Data JPA
+- H2 Database
+- Thymeleaf
 
-## Getting Started
+## Implemented Milestone
 
-### Prerequisites
-- Java 17 or higher
-- Maven 3.6+
+For the milestone "Business and Service Layer, ORM & JPA", the first backend web services were implemented with Spring Boot, Spring Data JPA, and H2.
 
-### Build
+Implemented domain entities:
 
-```bash
-cd MadnessEvent-boot
-mvn clean install
-```
+- `Event`
+- `Dj`
+- `Product`
+- `TicketBooking`
 
-### Run
+Implemented layers:
 
-```bash
-mvn spring-boot:run
-```
+- Domain/entity layer with JPA annotations
+- Repository layer with Spring Data JPA
+- Business service layer for validation and business logic
+- REST controller layer for the first API endpoints
 
-The application will start at `http://localhost:8080`
-
-## Testing
-
-Run unit tests:
-
-```bash
-mvn test
-```
+The application also initializes sample DJs, events, and products at startup, so the endpoints can be tested immediately after running the application.
 
 ## API Endpoints
 
 - `GET /api/health` - Health check endpoint
 - `GET /api/` - Welcome message
+- `GET /api/events` - List all events
+- `GET /api/events/{id}` - Get one event
+- `POST /api/events` - Create an event
+- `PUT /api/events/{id}` - Update an event
+- `DELETE /api/events/{id}` - Delete an event
+- `GET /api/djs` - List all DJs
+- `GET /api/djs/{id}` - Get one DJ
+- `POST /api/djs` - Create a DJ
+- `PUT /api/djs/{id}` - Update a DJ
+- `DELETE /api/djs/{id}` - Delete a DJ
+- `GET /api/products` - List all merchandise products
+- `GET /api/products/{id}` - Get one product
+- `POST /api/products` - Create a product
+- `PUT /api/products/{id}` - Update a product
+- `DELETE /api/products/{id}` - Delete a product
+- `GET /api/tickets` - List ticket bookings
+- `POST /api/tickets` - Book tickets for an event
 - `GET /actuator/health` - Spring Boot Actuator health endpoint
-- `GET /h2-console` - H2 Database Console (development only)
+- `GET /h2-console` - H2 Database Console for development
 
-## Configuration
+## Getting Started
 
-Edit `src/main/resources/application.properties` to customize:
-- Server port
-- Database settings
-- Logging levels
-- Actuator endpoints
+### Prerequisites
 
-## Development
+- Java 17 or higher
+- Maven 3.6+ or the included Maven wrapper
 
-### Enable DevTools
+### Build
 
-DevTools is included in the project for faster development with automatic restart on file changes.
+```powershell
+cd MadnessEvent-boot
+.\mvnw.cmd clean install
+```
 
-### IDE Setup
+### Run
 
-Import the project as a Maven project in your IDE (VS Code, IntelliJ, Eclipse, etc.)
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+The application starts at:
+
+```text
+http://localhost:8080
+```
+
+Example test URLs:
+
+```text
+http://localhost:8080/api/events
+http://localhost:8080/api/djs
+http://localhost:8080/api/products
+http://localhost:8080/api/tickets
+```
+
+## Testing
+
+Run unit tests:
+
+```powershell
+.\mvnw.cmd test
+```
 
 ## Database
 
-The application uses H2 in-memory database by default. Access the H2 console at:
-```
+The application uses an H2 in-memory database by default. Access the H2 console at:
+
+```text
 http://localhost:8080/h2-console
 ```
 
 Default credentials:
+
 - JDBC URL: `jdbc:h2:mem:madnesseventdb`
 - User: `sa`
-- Password: (empty)
+- Password: empty
+
+## Configuration
+
+Edit `src/main/resources/application.properties` to customize:
+
+- Server port
+- Database settings
+- JPA/Hibernate settings
+- Logging levels
+- Actuator endpoints
 
 ## Next Steps
 
-1. Add more domain entities and repositories
-2. Create business logic services
-3. Implement more REST endpoints
-4. Add validation and error handling
-5. Configure security if needed
+1. Add cart and order checkout services.
+2. Add e-ticket PDF download.
+3. Configure API security and authentication.
+4. Integrate the frontend with the backend endpoints.
