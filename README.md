@@ -21,11 +21,6 @@ The aim of the creation of a web shop is then to satisfy those needs, giving Mad
   - [Roles](#roles)
   - [Milestones](#milestones)
 
-## Analysis
-> 🚧: You can reuse the analysis (you made) from other projects (e.g., requirement engineering), but it must be submitted according to the following template. 
-
-
-
 ### Project Analysis
 
 MadnessEvent operates in a market where audience attention is strongly influenced by visual identity, speed of access to information, and ease of purchase. The website must therefore do more than present static information. It has to support the brand commercially and communicate the event experience clearly enough that users can move from discovery to purchase without friction.
