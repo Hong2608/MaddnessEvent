@@ -124,11 +124,8 @@ The prototype should validate these flows:
 The design direction should follow a dark, high-contrast, club-inspired visual language with strong typography and image-led sections. This matches the techno and rave identity of MadnessEvent and makes the prototype useful for testing both navigation and brand presentation.
 
 ### Domain Design
-> 🚧: Provide a picture and describe your domain model; you may use Entity-Relationship Model or UML class diagram. Both can be created in Visual Paradigm - we have an academic license for it.
 
-The `ch.fhnw.pizza.data.domain` package contains the following domain objects / entities including getters and setters:
-
-![](images/domain-model.png)
+<img width="804" height="588" alt="image" src="https://github.com/user-attachments/assets/cc5bf38d-565c-492a-8878-81002eedf1ea" />
 
 ### Business Logic 
 > 🚧: Describe the business logic for **at least one business service** in detail. If available, show the expected path and HTPP method. The remaining documentation of APIs shall be made available in the swagger endpoint. The default Swagger UI page is available at /swagger-ui.html.
