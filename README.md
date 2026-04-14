@@ -21,11 +21,6 @@ The aim of the creation of a web shop is then to satisfy those needs, giving Mad
   - [Roles](#roles)
   - [Milestones](#milestones)
 
-## Analysis
-> 🚧: You can reuse the analysis (you made) from other projects (e.g., requirement engineering), but it must be submitted according to the following template. 
-
-
-
 ### Project Analysis
 
 MadnessEvent operates in a market where audience attention is strongly influenced by visual identity, speed of access to information, and ease of purchase. The website must therefore do more than present static information. It has to support the brand commercially and communicate the event experience clearly enough that users can move from discovery to purchase without friction.
@@ -72,14 +67,12 @@ In later phases, the platform can evolve with more advanced features such as acc
 
 - UC-1 [View events ] User can see detailed information about a specific event (date, venue, DJ, price) 
 - UC-2 [Purchase tickets] User can buy tickets for an event through the website 
-- UC-3 [Create new event] Admin can create a new event with all details (date, DJ, venue, price) 
-- UC-4 [Download e-ticket] User can download e-tickets directly after payment 
-- UC-5 [Browse all products] User can view all merchandise item on website 
-- UC-6 [View product details ] User can see specific product information (price, image, size, color, description) 
-- UC-7 [Add product to cart] User can select product and add to shopping cart 
-- UC-8 [Create new product] Admin can create a new merchandise item to the online shop 
-- UC-9 [View order history] User can see their past purchases and order status 
-- UC-10 [Process order] User can complete purchase through checkout
+- UC-3 [Create new event] Admin can create a new event with all details (date, DJ, venue, price)  
+- UC-4 [Browse all products] User can view all merchandise item on website 
+- UC-5 [View product details ] User can see specific product information (price, image, size, color, description) 
+- UC-6 [Add product to cart] User can select product and add to shopping cart 
+- UC-7 [Create new product] Admin can create a new merchandise item to the online shop
+- UC-8 [Delete a product] Admin can delete a merchandise item from the online shop
 
 ## Design
 > 🚧: Keep in mind the Corporate Identity (CI); you shall decide appropriately the color schema, graphics, typography, layout, User Experience (UX), and so on.
