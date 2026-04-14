@@ -4,34 +4,53 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "ticket_bookings")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class TicketBooking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    // The event being booked (from the Tickets page)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "event_id", nullable = false)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Event event;
 
     @Column(nullable = false)
-    private int quantity;
+    private Integer quantity;
 
+    // Entered by user at booking (Login required on Tickets page)
     @Column(nullable = false)
     private String purchaserName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime bookedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.bookedAt = LocalDateTime.now();
+    }
 
     public Long getId() {
         return id;

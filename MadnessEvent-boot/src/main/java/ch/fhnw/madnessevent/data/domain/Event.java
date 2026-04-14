@@ -5,19 +5,32 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "events")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Event {
 
     @Id
@@ -27,11 +40,17 @@ public class Event {
     @Column(nullable = false)
     private String name;
 
+    // Shown on Homepage (newest event) and Tickets page
+    @Column(name = "photo_url")
+    private String photoUrl;
+
+    // Shown on Tickets page: "date"
     @Column(nullable = false)
     private LocalDate date;
 
+    // Shown on Tickets page: "location"
     @Column(nullable = false)
-    private String venue;
+    private String location;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
@@ -42,13 +61,22 @@ public class Event {
     @Column(nullable = false)
     private int availableTickets;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    // Shown on Tickets page: "DJ"
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
-            name = "event_djs",
-            joinColumns = @JoinColumn(name = "event_id"),
-            inverseJoinColumns = @JoinColumn(name = "dj_id")
+        name = "event_djs",
+        joinColumns = @JoinColumn(name = "event_id"),
+        inverseJoinColumns = @JoinColumn(name = "dj_id")
     )
+    @Builder.Default
     private List<Dj> djs = new ArrayList<>();
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @Builder.Default
+    private List<TicketBooking> bookings = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -74,12 +102,20 @@ public class Event {
         this.date = date;
     }
 
-    public String getVenue() {
-        return venue;
+    public String getLocation() {
+        return location;
     }
 
-    public void setVenue(String venue) {
-        this.venue = venue;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public BigDecimal getPrice() {
@@ -112,5 +148,13 @@ public class Event {
 
     public void setDjs(List<Dj> djs) {
         this.djs = djs;
+    }
+
+    public List<TicketBooking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<TicketBooking> bookings) {
+        this.bookings = bookings;
     }
 }
