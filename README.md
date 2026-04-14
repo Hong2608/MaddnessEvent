@@ -78,6 +78,14 @@ In later phases, the platform can evolve with more advanced features such as acc
 > 🚧: Keep in mind the Corporate Identity (CI); you shall decide appropriately the color schema, graphics, typography, layout, User Experience (UX), and so on.
 
 ### Wireframe
+
+<img width="767" height="284" alt="image" src="https://github.com/user-attachments/assets/a3308e4c-4091-4213-bdab-2a586ccdae6a" />
+<img width="802" height="839" alt="image" src="https://github.com/user-attachments/assets/fc25fe4b-6420-4b61-9c78-28a1d479ae9b" />
+<img width="841" height="1112" alt="image" src="https://github.com/user-attachments/assets/f8f72b6a-dfa7-4cd0-863d-d3a95d8253a1" />
+<img width="795" height="840" alt="image" src="https://github.com/user-attachments/assets/9aee850c-efbf-48da-8750-9f9ec6d003d4" />
+<img width="792" height="1096" alt="image" src="https://github.com/user-attachments/assets/81a7b3ce-5bac-4aaa-8147-272c8c7f7d09" />
+
+
 > 🚧: It is suggested to start with a wireframe. The wireframe focuses on the website structure (Sitemap planning), sketching the pages using Wireframe components (e.g., header, menu, footer) and UX. You can create a wireframe already with draw.io or similar tools. 
 
 Starting from the home page, we can visit different pages. Available public pages are visible in the menu...
