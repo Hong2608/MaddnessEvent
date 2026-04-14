@@ -1,4 +1,4 @@
-package ch.fhnw.madnessevents.controller;
+package ch.fhnw.madnessevent.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;

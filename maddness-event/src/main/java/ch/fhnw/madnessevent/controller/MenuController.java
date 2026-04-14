@@ -1,82 +1,79 @@
-package ch.fhnw.madnessevents.controller;
+package ch.fhnw.madnessevent.controller;
 
-
-import ch.fhnw.madnessevents.business.service.MenuService;
-import ch.fhnw.madnessevents.data.domain.Menu;
-import ch.fhnw.madnessevents.data.domain.Pizza;
-
+import ch.fhnw.madnessevent.business.service.MenuService;
+import ch.fhnw.madnessevent.data.domain.Menu;
+import ch.fhnw.madnessevent.data.domain.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/menu")
+@RequestMapping(path = "/api/menu")
 public class MenuController {
 
-    @Autowired
-    private MenuService menuService;
+    private final MenuService menuService;
 
-    @GetMapping(path="/pizzas/{id}", produces = "application/json")
-    public ResponseEntity getPizza(@PathVariable Long id) {
-        try{
+    @Autowired
+    public MenuController(MenuService menuService) {
+        this.menuService = menuService;
+    }
+
+    @GetMapping(path = "", produces = "application/json")
+    public ResponseEntity<Menu> getMenu(@RequestParam(name = "location") String location) {
+        if (location == null || location.isBlank()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+        Menu menu = menuService.getMenuByLocation(location);
+        return ResponseEntity.ok(menu);
+    }
+
+    @GetMapping(path = "/pizzas", produces = "application/json")
+    public ResponseEntity<List<Pizza>> getPizzaList() {
+        List<Pizza> pizzaList = menuService.getAllPizzas();
+        return ResponseEntity.ok(pizzaList);
+    }
+
+    @GetMapping(path = "/pizzas/{id}", produces = "application/json")
+    public ResponseEntity<Pizza> getPizza(@PathVariable Long id) {
+        try {
             Pizza pizza = menuService.findPizzaById(id);
             return ResponseEntity.ok(pizza);
-        }
-        catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No pizza found with given id");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 
-    @GetMapping(path="/pizzas", produces = "application/json")
-    public List<Pizza> getPizzaList() {
-        List<Pizza> pizzaList = menuService.getAllPizzas();
-
-        return pizzaList;
-    }
-
-    @PostMapping(path="/pizzas", consumes="application/json", produces = "application/json")
-    public ResponseEntity addPizza(@RequestBody Pizza pizza) {
-        try{
-            pizza = menuService.addPizza(pizza);
-            
+    @PostMapping(path = "/pizzas", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<?> addPizza(@RequestBody Pizza pizza) {
+        try {
+            Pizza created = menuService.addPizza(pizza);
+            return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Pizza already exists with given name");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }
-        return ResponseEntity.ok(pizza);
-        
     }
 
-    @PutMapping(path="/pizzas/{id}", consumes="application/json", produces = "application/json")
-    public ResponseEntity updatePizza(@PathVariable Long id, @RequestBody Pizza pizza) {
-        try{
-            pizza = menuService.updatePizza(id, pizza);
-            
+    @PutMapping(path = "/pizzas/{id}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<?> updatePizza(@PathVariable Long id, @RequestBody Pizza pizza) {
+        try {
+            Pizza updated = menuService.updatePizza(id, pizza);
+            return ResponseEntity.ok(updated);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("No pizza found with given id");
-
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
-        return ResponseEntity.ok(pizza);
-        
     }
 
-    @DeleteMapping(path="/pizzas/{id}")
+    @DeleteMapping(path = "/pizzas/{id}")
     public ResponseEntity<String> deletePizza(@PathVariable Long id) {
-        try{
+        try {
             menuService.deletePizza(id);
-            return ResponseEntity.ok("Pizza with id " + id + " deleted");
+            return ResponseEntity.noContent().build();
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Pizza not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
-
-    @GetMapping(path="", produces = "application/json")
-    public ResponseEntity<Menu> getMenu(@RequestParam String location) {
-        Menu menu = menuService.getMenuByLocation(location);
-        return ResponseEntity.ok(menu);      
-    }
-    
 }

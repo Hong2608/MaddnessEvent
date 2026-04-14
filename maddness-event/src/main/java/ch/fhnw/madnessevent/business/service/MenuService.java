@@ -1,13 +1,13 @@
-package ch.fhnw.madnessevents.business.service;
+package ch.fhnw.madnessevent.business.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ch.fhnw.madnessevents.data.domain.Menu;
-import ch.fhnw.madnessevents.data.domain.Pizza;
-import ch.fhnw.madnessevents.data.repository.PizzaRepository;
+import ch.fhnw.madnessevent.data.domain.Menu;
+import ch.fhnw.madnessevent.data.domain.Pizza;
+import ch.fhnw.madnessevent.data.repository.PizzaRepository;
 
 @Service
 public class MenuService {
