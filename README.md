@@ -79,12 +79,11 @@ In later phases, the platform can evolve with more advanced features such as acc
 
 ### Wireframe
 
-<img width="767" height="284" alt="image" src="https://github.com/user-attachments/assets/a3308e4c-4091-4213-bdab-2a586ccdae6a" />
-<img width="802" height="839" alt="image" src="https://github.com/user-attachments/assets/fc25fe4b-6420-4b61-9c78-28a1d479ae9b" />
-<img width="841" height="1112" alt="image" src="https://github.com/user-attachments/assets/f8f72b6a-dfa7-4cd0-863d-d3a95d8253a1" />
-<img width="795" height="840" alt="image" src="https://github.com/user-attachments/assets/9aee850c-efbf-48da-8750-9f9ec6d003d4" />
-<img width="792" height="1096" alt="image" src="https://github.com/user-attachments/assets/81a7b3ce-5bac-4aaa-8147-272c8c7f7d09" />
-
+<img width="1464" height="561" alt="image" src="https://github.com/user-attachments/assets/4cd9be89-80ee-4e71-9f47-17f0d6a26f1c" />
+<img width="1086" height="1142" alt="image" src="https://github.com/user-attachments/assets/a829d9a4-b48b-4414-99a8-8c25f1c95232" />
+<img width="1116" height="1131" alt="image" src="https://github.com/user-attachments/assets/d9d40786-a22a-4d29-b1b8-84e1fc1e642b" />
+<img width="1115" height="1113" alt="image" src="https://github.com/user-attachments/assets/be3549ec-350c-4730-b8a7-a56436308bdd" />
+<img width="1091" height="1334" alt="image" src="https://github.com/user-attachments/assets/9f36380e-3f8f-4e67-864d-40195e094138" />
 
 > 🚧: It is suggested to start with a wireframe. The wireframe focuses on the website structure (Sitemap planning), sketching the pages using Wireframe components (e.g., header, menu, footer) and UX. You can create a wireframe already with draw.io or similar tools. 
 
