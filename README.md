@@ -50,30 +50,34 @@ The scenario assumes a target audience of young, digitally active users who expe
 In later phases, the platform can evolve with more advanced features such as account-based services, loyalty rewards, premium access, or exclusive digital content. For the current milestone, the scenario defines the business context and user environment that guide the prototype.
 
 ### User Stories
-1. As an Admin, I want to create, update, and modify event and ticket information, so that users always see accurate event details and ticket availability. 
-2. As an Admin, I want to update and manage merchandise information on the website, so that users can view and purchase the correct products. 
-3. As an Admin, I want to generate reports about user activity on the website, so that I can analyze customer behavior. 
-4. As an Admin, I want to export reports about user activity on the website, so that I can use the data for business analysis and decision-making. 
-5. As a Visitor, I want to create an account on the website, so that I can purchase tickets, buy merchandise, and follow upcoming events. 
-6. As a registered user, I want to log in to my account so that I can access my personal information and make purchases. 
-7. As a User, I want to view information about upcoming events and available tickets, so that I can decide which event I want to attend. 
-8. As a user, I want to browse merchandise such as accessories, clothing, and limited-edition items, so that I can buy products related to events. 
-9. As a user, I want to search for merchandise using keywords, so that I can quickly find specific products I am interested in. 
-10. As a user, I want to add, remove, or update items in my shopping cart, so that I can control the products and quantities before purchasing. 
-11. As a user, I want to complete the purchase of tickets or merchandise from my cart, so that I can attend events and receive my selected products. 
-12. As a user, I want to subscribe to the MadnessEvents newsletter, so that I can receive updates about upcoming events and new merchandise. 
+1. As a visitor, I want to see upcoming events with date, venue, DJ lineup, and price, so that I can decide which event to attend.
+2. As a visitor, I want to open a specific event page, so that I can read full event details before booking.
+3. As a user, I want to book tickets for an event, so that I can secure my spot online.
+4. As a user, I want to see ticket availability and price before checkout, so that I can make an informed purchase.
+5. As a user, I want to browse merchandise categories, so that I can discover products related to MadnessEvent.
+6. As a user, I want to open a product page with image, size, color, and price, so that I can choose the correct item.
+7. As a user, I want to add merchandise items to my cart and update quantities, so that I can control my purchase.
+8. As a user, I want to complete checkout for tickets and merchandise, so that I can receive my order.
+9. As a visitor, I want to browse DJs and their profiles, so that I can discover performers before events.
+10. As an admin, I want to create, update, and remove events, so that published event data stays accurate.
+11. As an admin, I want to create, update, and remove merchandise products, so that the shop catalog stays current.
+12. As an admin, I want to update DJ profiles, so that artist information remains correct and useful.
 
 ### Use Case
 
-- UC-1 [View events ] User can see detailed information about a specific event (date, venue, DJ, price) 
-- UC-2 [Purchase tickets] User can buy tickets for an event through the website 
-- UC-3 [Create new event] Admin can create a new event with all details (date, DJ, venue, price)  
-- UC-4 [Browse all products] User can view all merchandise item on website 
-- UC-5 [View product details ] User can see specific product information (price, image, size, color, description) 
-- UC-6 [Add product to cart] User can select product and add to shopping cart 
-- UC-7 [Create new product] Admin can create a new merchandise item to the online shop
-- UC-8 [Delete a product] Admin can delete a merchandise item from the online shop
-
+- UC-1 [Browse events] User can view all upcoming events.
+- UC-2 [View event details] User can view event details including date, venue, DJ lineup, price, and availability.
+- UC-3 [Book ticket] User can select an event and book tickets.
+- UC-4 [Browse DJs] User can view all DJs.
+- UC-5 [View DJ profile] User can view specific DJ information.
+- UC-6 [Browse products] User can view all merchandise products.
+- UC-7 [View product details] User can view product details including image, description, color, size, and price.
+- UC-8 [Add product to cart] User can add merchandise to cart.
+- UC-9 [Update cart] User can update quantity or remove cart items.
+- UC-10 [Checkout] User can complete purchase for tickets and/or merchandise.
+- UC-11 [Manage events] Admin can create, edit, and delete events.
+- UC-12 [Manage products] Admin can create, edit, and delete merchandise products.
+- UC-13 [Manage DJs] Admin can create, edit, and delete DJ profiles.
 ## Design
 > 🚧: Keep in mind the Corporate Identity (CI); you shall decide appropriately the color schema, graphics, typography, layout, User Experience (UX), and so on.
 
@@ -119,7 +123,6 @@ The prototype should validate these flows:
 - User browses the shop and compares merchandise by category, description, size, color, and price.
 
 The design direction should follow a dark, high-contrast, club-inspired visual language with strong typography and image-led sections. This matches the techno and rave identity of MadnessEvent and makes the prototype useful for testing both navigation and brand presentation.
-
 ### Domain Design
 
 <img width="804" height="588" alt="image" src="https://github.com/user-attachments/assets/cc5bf38d-565c-492a-8878-81002eedf1ea" />
@@ -251,6 +254,11 @@ The application uses an H2 database for development and testing purposes. Placeh
 
 Notes
 At this stage, the backend setup provides the technical foundation for the next milestones, including implementation of web services, authentication, and integration with the frontend.
+
+
+
+
+
 
 
 
