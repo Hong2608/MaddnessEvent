@@ -105,8 +105,7 @@ The prototype should include these main screens:
 1. `Homepage`: The homepage is the entry point of the website. It should welcome users to MadnessEvent, show the newest upcoming event, include a strong event photo, and provide a clear `Book ticket here!` action. From this page, users should be able to navigate directly to DJs, tickets, and the shop.
 2. `DJs page`: The DJs page should present a list of DJs. Each DJ entry should lead to DJ information, so visitors can learn more about the performers connected to the events.
 3. `Tickets page`: The tickets page should show the upcoming events. Each event card should include a photo, date, location, DJ, number of tickets available, and price. This page supports the main ticket discovery and booking flow.
-4. `Login page`: The login page should allow returning or registered users to access their account. In the prototype, this page can be represented with a simple login form and does not need a working authentication system yet.
-5. `Shop page`: The shop page should present MadnessEvent merchandise. It should include product categories such as apparel and accessories. Apparel examples include T-shirts, hoodies, hats, headwear, and tank tops. Accessory examples include branded hats, wristbands, stickers, and lighters. Product cards should show a photo, description, color, size, and price.
+4. `Shop page`: The shop page should present MadnessEvent merchandise. It should include product categories such as apparel and accessories. Apparel examples include T-shirts, hoodies, hats, headwear, and tank tops. Accessory examples include branded hats, wristbands, stickers, and lighters. Product cards should show a photo, description, color, size, and price.
 
 Each main page should also include a footer with `Contact us`, `FAQs`, and social media links. This keeps the user journey consistent and gives visitors access to basic support and communication options from every page.
 
@@ -117,7 +116,6 @@ The prototype should validate these flows:
 - User opens the DJs page and views DJ information.
 - User opens the tickets page and compares event details before booking.
 - User uses the booking action to move toward ticket purchase.
-- User opens the login page when account access is required.
 - User browses the shop and compares merchandise by category, description, size, color, and price.
 
 The design direction should follow a dark, high-contrast, club-inspired visual language with strong typography and image-led sections. This matches the techno and rave identity of MadnessEvent and makes the prototype useful for testing both navigation and brand presentation.
@@ -253,5 +251,6 @@ The application uses an H2 database for development and testing purposes. Placeh
 
 Notes
 At this stage, the backend setup provides the technical foundation for the next milestones, including implementation of web services, authentication, and integration with the frontend.
+
 
 
