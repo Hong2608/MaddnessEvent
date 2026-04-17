@@ -80,6 +80,42 @@ In later phases, the platform can evolve with more advanced features such as acc
 - UC-13 [Manage DJs] Admin can create, edit, and delete DJ profiles.
 ## Design
 > 🚧: Keep in mind the Corporate Identity (CI); you shall decide appropriately the color schema, graphics, typography, layout, User Experience (UX), and so on.
+> 
+Design 
+The design of Madness-Events is based on a strong and recognizable corporate identity that reflects the atmosphere of techno and rave events. The website uses a dark visual style to create a club-inspired look and to strengthen the premium nightlife feeling of the brand. This approach helps distinguish MadnessEvents from generic event websites and supports a more immersive user experience. 
+
+Color Scheme 
+The selected color palette is based on: 
+Black / very dark background for a modern nightlife identity  
+Bright green / neon green accents for buttons, highlights, and active navigation  
+White and light gray text for strong contrast and readability 
+
+This combination creates a high-contrast interface that is visually striking, easy to read, and consistent with the electronic music scene. 
+
+
+
+Typography 
+The typography of MadnessEvents is designed to support a strong nightlife identity while keeping the interface readable and easy to scan. The site uses bold, high-impact headings to reflect the energy of techno and rave culture, combined with clean body text for clarity in event details, ticket information, and product descriptions. 
+
+Graphics and Visual Style 
+The website uses image-led sections, cards, and strong visual blocks to communicate the MadnessEvents identity. Event and DJ images are important design elements because they help users quickly connect with the event atmosphere. Product and ticket cards are kept visually simple so that users can focus on the most relevant information and actions. 
+
+Layout 
+
+The layout is designed to be clear and consistent across all pages. Each page follows a similar structure: 
+header with logo and navigation  
+hero section or page title  
+card-based content sections  
+clear action buttons  
+footer with links and social media  
+This creates familiarity and helps users navigate the platform more easily. 
+
+User Experience (UX) 
+The UX design focuses on simplicity, speed, and direct navigation. Users should be able to move quickly from discovering an event to viewing details and taking action, such as buying a ticket or browsing merchandise. The website is also designed to be responsive so that the experience remains clear and usable on both desktop and mobile devices. 
+
+Design Goal 
+The overall goal of the design is to create a consistent digital identity for MadnessEvents that is visually engaging, easy to use, and aligned with the brand’s position as a modern organizer of techno and rave events. 
+
 
 ### Wireframe
 
