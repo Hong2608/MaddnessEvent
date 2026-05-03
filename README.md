@@ -81,13 +81,13 @@ In later phases, the platform can evolve with more advanced features such as acc
 ## Design
 > 🚧: Keep in mind the Corporate Identity (CI); you shall decide appropriately the color schema, graphics, typography, layout, User Experience (UX), and so on.
 
-Design
+### Design
 The design of “Madness-Events” is based on a strong and recognizable corporate identity that reflects the atmosphere of techno and rave events. The website uses a dark visual style to create a club-inspired look and to strengthen the premium nightlife feeling of the brand. This helps distinguish Madness-Events from generic event websites and supports a more immersive user experience.
 
-Corporate Identity (CI)
+### Corporate Identity (CI)
 The website is designed to communicate Madness-Events consistently across all main pages. The design choices were made to support a strong event-oriented identity and a memorable first impression.
 
-Color Scheme
+### Color Scheme
 The selected color palette is based on:
 - black and very dark blue background tones for a modern nightlife identity
 - bright neon green accents for buttons, highlights, and active navigation
@@ -97,13 +97,13 @@ This combination creates a high-contrast interface that is visually striking, ea
 <img width="1753" height="837" alt="image" src="https://github.com/user-attachments/assets/fea83628-3018-4273-ad64-835ceda9ae8f" />
 
 
-Typography
+### Typography
 The typography of Madness-Events is designed to support a bold nightlife identity while keeping the interface readable and easy to scan. Large headings are used in the hero and page titles to create strong visual impact, while simpler body text is used for event descriptions, ticket information, and merchandise content.
 
-Graphics and Visual Style
+### Graphics and Visual Style
 The website uses image-led and card-based sections to communicate the MadnessEvents identity. Even in the current prototype stage, the visual direction is clear: dark sections, bold text blocks, and highlighted action links. DJ, ticket, and merchandise content is presented using reusable cards so users can focus on the most relevant information quickly. A branded logo is also being integrated to strengthen recognition.
 
-Layout
+### Layout
 The layout is designed to be clear and consistent across all main pages. The implemented frontend currently follows a shared structure:
 - header with logo and navigation
 - hero section or page title
@@ -112,10 +112,10 @@ The layout is designed to be clear and consistent across all main pages. The imp
 - separate public pages for DJs, Tickets, and Shop
 This structure creates familiarity and helps users move through the platform more easily.
 
-User Experience (UX)
+### User Experience (UX)
 The UX design focuses on simplicity, speed, and direct navigation. Users should be able to move quickly from discovering an event to viewing DJs, opening the tickets page, or browsing merchandise. The homepage already supports this with direct navigation links, a hero call-to-action button, and linked content cards. The design also aims to remain usable across different screen sizes through a clear and responsive structure.
 
-Current Design Implementation
+### Current Design Implementation
 So far, the frontend includes:
 - a public homepage with navbar and hero section
 - separate DJs, Tickets, and Shop pages
@@ -125,7 +125,7 @@ So far, the frontend includes:
 - CTA links from homepage sections to the related pages
 - a separate admin page protected from the public homepage
 
-Design Goal
+### Design Goal
 The overall goal of the design is to create a consistent digital identity for Madness-Events that is visually engaging, easy to use, and aligned with the brand’s position as a modern organizer of techno and rave events. The design should support both brand presentation and the main commercial journeys of the platform, especially ticket discovery and merchandise browsing.
 
 
