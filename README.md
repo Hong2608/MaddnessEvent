@@ -78,8 +78,6 @@ In later phases, the platform can evolve with more advanced features such as acc
 - UC-11 [Manage events] Admin can create, edit, and delete events.
 - UC-12 [Manage products] Admin can create, edit, and delete merchandise products.
 - UC-13 [Manage DJs] Admin can create, edit, and delete DJ profiles.
-## Design
-> 🚧: Keep in mind the Corporate Identity (CI); you shall decide appropriately the color schema, graphics, typography, layout, User Experience (UX), and so on.
 
 ### Design
 The design of “Madness-Events” is based on a strong and recognizable corporate identity that reflects the atmosphere of techno and rave events. The website uses a dark visual style to create a club-inspired look and to strengthen the premium nightlife feeling of the brand. This helps distinguish Madness-Events from generic event websites and supports a more immersive user experience.
@@ -137,9 +135,6 @@ The overall goal of the design is to create a consistent digital identity for Ma
 <img width="1115" height="1113" alt="image" src="https://github.com/user-attachments/assets/be3549ec-350c-4730-b8a7-a56436308bdd" />
 <img width="1091" height="1334" alt="image" src="https://github.com/user-attachments/assets/9f36380e-3f8f-4e67-864d-40195e094138" />
 
-> 🚧: It is suggested to start with a wireframe. The wireframe focuses on the website structure (Sitemap planning), sketching the pages using Wireframe components (e.g., header, menu, footer) and UX. You can create a wireframe already with draw.io or similar tools. 
-
-Starting from the home page, we can visit different pages. Available public pages are visible in the menu...
 
 ### Prototype
 
