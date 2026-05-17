@@ -296,35 +296,128 @@ All validation errors are handled centrally by `ApiExceptionHandler`. The two cu
 > 🚧: Briefly describe your technology stack, which apps were used and for what.
 
 ### Backend Technology
-> 🚧: It is suggested to clone this repository, but you are free to start from fresh with a Spring Initializr. If so, describe if there are any changes to the MadnessEvent backend e.g., different dependencies, versions & etc... Please also describe how your database is set up.
 
-This Web application is relying on [Spring Boot](https://projects.spring.io/spring-boot) and the following dependencies:
+The backend of MadnessEvent is a Spring Boot application located in the `MadnessEvent-boot/` module. It was bootstrapped using the [Spring Initializr](https://start.spring.io/) and adapted to the MadnessEvent project structure and domain.
 
-- [Spring Boot](https://projects.spring.io/spring-boot)
-- [Spring Data](https://projects.spring.io/spring-data)
-- [Java Persistence API (JPA)](http://www.oracle.com/technetwork/java/javaee/tech/persistence-jsp-140049.html)
-- [H2 Database Engine](https://www.h2database.com)
+**Technology stack:**
 
-To bootstrap the application, the [Spring Initializr](https://start.spring.io/) has been used.
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| Java | 17 | Primary programming language |
+| Spring Boot | 3.2.2 | Application framework and auto-configuration |
+| Spring Web (MVC) | via Boot | REST API controllers and request handling |
+| Spring Data JPA | via Boot | Data access layer and ORM |
+| Hibernate | via Boot | JPA implementation and SQL generation |
+| H2 Database | runtime | In-memory relational database for development and testing |
+| Thymeleaf | via Boot | Server-side HTML templating (admin dashboard) |
+| Lombok | latest | Reduces boilerplate (getters, setters, builders) |
+| Spring Boot Actuator | via Boot | Health check and monitoring endpoints |
+| Spring Boot DevTools | runtime | Hot reload during development |
+| Spring Boot Test | test scope | Unit and integration testing |
 
-Then, the following further dependencies have been added to the project `pom.xml`:
+**Project structure:**
 
-- DB:
-```XML
-<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-</dependency>
+```
+MadnessEvent-boot/
+├── pom.xml                          # Maven config (Spring Boot 3.2.2, Java 17)
+└── src/main/java/ch/fhnw/madnessevent/
+    ├── MadnessEventApplication.java # Spring Boot entry point (@SpringBootApplication)
+    ├── DataInitializer.java         # Seeds sample DJs, events and products on startup
+    ├── business/
+    │   ├── exception/               # BadRequestException, ResourceNotFoundException
+    │   └── service/                 # EventService, DjService, ProductService, TicketBookingService
+    ├── controller/
+    │   ├── dto/                     # Request/response record types (EventRequest, TicketRequest, …)
+    │   ├── ApiExceptionHandler.java # Global @RestControllerAdvice — maps exceptions to HTTP errors
+    │   ├── DashboardController.java # Thymeleaf admin dashboard
+    │   ├── EventController.java     # REST: /api/events
+    │   ├── DjController.java        # REST: /api/djs
+    │   ├── ProductController.java   # REST: /api/products
+    │   ├── TicketController.java    # REST: /api/tickets
+    │   └── HealthController.java    # REST: /api/health
+    └── data/
+        ├── domain/                  # JPA entities: Event, Dj, Product, TicketBooking
+        └── repository/              # Spring Data JPA repositories
 ```
 
-- SWAGGER:
-```XML
-   <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>2.3.0</version>
-   </dependency>
+**Database setup:**
+
+The application uses an H2 in-memory database configured in `src/main/resources/application.properties`:
+
+```properties
+spring.application.name=madness-event
+server.port=8080
+
+# H2 in-memory database
+spring.datasource.url=jdbc:h2:mem:madnesseventdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+# JPA / Hibernate
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+
+# H2 Console (available at /h2-console during development)
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+# Actuator
+management.endpoints.web.exposure.include=health,info
+management.endpoint.health.show-details=always
+```
+
+The schema is generated automatically by Hibernate on startup (`ddl-auto=update`). Sample data (3 DJs, 2 events, 2 products) is loaded at startup via `DataInitializer.java`, which implements `CommandLineRunner` and inserts records only if the tables are empty.
+
+To switch to a persistent H2 file database instead of in-memory, replace the datasource URL with:
+
+```properties
+spring.datasource.url=jdbc:h2:file:./data/madnesseventdb
+```
+
+**Dependencies added to `pom.xml`:**
+
+```xml
+<!-- Spring Boot Starters -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+<!-- Database -->
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <scope>runtime</scope>
+</dependency>
+
+<!-- Lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <optional>true</optional>
+</dependency>
+
+<!-- Dev Tools -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <scope>runtime</scope>
+    <optional>true</optional>
+</dependency>
 ```
 
 ### Frontend Technology
