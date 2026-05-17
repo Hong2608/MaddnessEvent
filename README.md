@@ -168,9 +168,8 @@ The prototype should validate these flows:
 The design direction should follow a dark, high-contrast, club-inspired visual language with strong typography and image-led sections. This matches the techno and rave identity of MadnessEvent and makes the prototype useful for testing both navigation and brand presentation.
 ### Domain Design
 
-The `ch.fhnw.madnessevent.data.domain` package contains the following domain objects / entities including getters and setters:
+<img width="1577" height="1130" alt="image" src="https://github.com/user-attachments/assets/070694e3-d61e-4394-80c9-b25628b43e2d" />
 
-- foo
 
 ### Business Logic 
 > 🚧: Describe the business logic for **at least one business service** in detail. If available, show the expected path and HTTP method. The remaining documentation of APIs shall be made available in the swagger endpoint. The default Swagger UI page is available at /swagger-ui.html.
