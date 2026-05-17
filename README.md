@@ -293,7 +293,7 @@ The full API documentation for all other endpoints is available at `/swagger-ui.
 All validation errors are handled centrally by `ApiExceptionHandler`. The two custom exception types are `BadRequestException` (HTTP 400) and `ResourceNotFoundException` (HTTP 404). Both return a structured JSON error body with a `code` and `message` field, consistent with the OpenAPI error schema defined in `openapi.yaml`.
 
 ## Implementation
-> 🚧: Briefly describe your technology stack, which apps were used and for what.
+The MadnessEvent platform is split into two modules. The `MadnessEvent-boot` module contains the fully implemented backend and frontend. The `maddness-event` module contains the earlier domain/repository scaffold and the Docker setup. The backend is a Spring Boot 3.2.2 application (Java 17) exposing a REST API. The frontend is a set of Thymeleaf HTML pages served by the same Spring Boot application, styled with a shared CSS file. The H2 in-memory database is used for development and testing, with sample data seeded automatically on startup.
 
 ### Backend Technology
 
@@ -421,85 +421,143 @@ spring.datasource.url=jdbc:h2:file:./data/madnesseventdb
 ```
 
 ### Frontend Technology
-> 🚧: Describe your views and what APIs are used on which view.
 
-The frontend should align with the MadnessEvent theme and connect to the backend API endpoints required for events, DJs, tickets, and merchandise.
+The frontend of MadnessEvent is a static HTML/CSS interface served directly by Spring Boot via the `static/` and `templates/` resource folders. All pages share the same dark techno-inspired design and a consistent navigation bar with active-link highlighting.
+
+**Views and their API connections:**
+
+| View | File | Description | API endpoints used |
+|------|------|-------------|-------------------|
+| Homepage | `templates/index.html` | Entry point. Shows a hero section, featured DJ and event cards, and upcoming event previews. Links to all other pages. | None (static content at this stage) |
+| DJs page | `templates/djs.html` | Lists all DJs with name, genre, and profile cards. Hero section with tagline. | `GET /api/djs` |
+| Tickets page | `templates/ticket.html` | Displays upcoming events with date, location, and "Buy Ticket" action links. | `GET /api/events` |
+| Shop page | `templates/shop.html` | Merchandise catalog with product cards grouped by category. | `GET /api/products` |
+| Admin dashboard | served at `/dashboard` via `DashboardController` | Protected admin view with summary stats (total events, active events, attendees, revenue) and a Chart.js events-per-month line chart. | `GET /dashboard`, `GET /dashboard/stats` |
+
+**Static assets:**
+
+- `static/css/style.css` — single shared stylesheet for all pages. Implements the dark techno theme: black/dark-blue backgrounds, neon green and pink accents, white text, card-based layouts, and responsive navigation.
+- `static/js/dashboard.js` — vanilla JavaScript for the admin dashboard. Updates the live clock every second and initialises a Chart.js line chart showing event counts by month.
+
+**Theming:**
+
+All pages use a consistent visual language: dark backgrounds, bright neon-green active nav links, pink CTA buttons, image-led hero sections, and reusable card components for events, DJs, and merchandise.
+
 
 ## Execution
-> 🚧: Please describe how to execute your app and what configurations must be changed to run it.
 
-Run the backend application from the `maddness-event` module using the Spring Boot Maven wrapper:
+**Prerequisites:**
+- Java 17 or higher
+- Maven 3.6+ or use the included Maven wrapper (`mvnw`)
+
+**Run locally (Maven wrapper):**
+
+```bash
+cd MadnessEvent-boot
+./mvnw spring-boot:run        # Linux / macOS
+.\mvnw.cmd spring-boot:run   # Windows
+```
+
+The application starts on **http://localhost:8080**.
+
+**Key URLs after startup:**
+
+| URL | Description |
+|-----|-------------|
+| `http://localhost:8080` | Homepage (index.html) |
+| `http://localhost:8080/djs.html` | DJs page |
+| `http://localhost:8080/tickets.html` | Tickets page |
+| `http://localhost:8080/shop.html` | Shop page |
+| `http://localhost:8080/dashboard` | Admin dashboard |
+| `http://localhost:8080/api/events` | REST: all events (JSON) |
+| `http://localhost:8080/api/djs` | REST: all DJs (JSON) |
+| `http://localhost:8080/api/products` | REST: all products (JSON) |
+| `http://localhost:8080/api/tickets` | REST: all bookings (JSON) |
+| `http://localhost:8080/api/health` | Health check endpoint |
+| `http://localhost:8080/h2-console` | H2 database console |
+| `http://localhost:8080/swagger-ui.html` | Swagger API documentation |
+| `http://localhost:8080/actuator/health` | Spring Boot Actuator health |
+
+**H2 console credentials:**
+
+| Field | Value |
+|-------|-------|
+| JDBC URL | `jdbc:h2:mem:madnesseventdb` |
+| User | `sa` |
+| Password | *(leave empty)* |
+
+**Run tests:**
+
+```bash
+./mvnw test
+```
+
+**Build a JAR:**
+
+```bash
+./mvnw clean package
+java -jar target/madness-event-1.0.0-SNAPSHOT.jar
+```
+
+**Docker (using the Dockerfile in `maddness-event/`):**
 
 ```bash
 cd maddness-event
-./mvnw spring-boot:run
-```
-
-If you use the Docker setup, build and run the container from the module root:
-
-```bash
 docker build -t maddness-event .
 docker run -p 8080:8080 maddness-event
 ```
 
-### Deployment to a PaaS
-> 🚧: Deployment to PaaS is optional but recommended if you want a stable publicly available endpoint.
 
-1. Deploy the `maddness-event` service using your preferred platform.
-2. Use the Dockerfile in `maddness-event/Dockerfile` and update the artifact name if needed.
-3. Ensure the backend URL is configured in your frontend application.
-6. Choose the Instance Type as Free/Hobby. All other details are default.
-7. Click on Create Web Service. Your app will undergo automatic build and deployment. Monitor the logs to view the progress or error messages. The entire process of Build+Deploy might take several minutes.
-8. After successful deployment, you can access your backend using the generated unique URL (visible on top left under the name of your web service).
-9. This unique URL will remain unchanged as long as your web service is deployed on Render. You can now integrate it in Budibase to make API calls to your custom endpoints.
+### Deployment to a PaaS
+
+Deployment to a cloud platform is optional but recommended for a stable, publicly accessible endpoint. The steps below use [Render](https://render.com) as an example, which offers a free tier suitable for this project.
+
+**Prerequisites:**
+- A public GitHub repository containing the project (already satisfied).
+- A working `Dockerfile` in the `maddness-event/` module.
+
+**Steps on Render:**
+
+1. Go to [https://render.com](https://render.com) and sign in or create an account.
+2. Click **New → Web Service** and connect your GitHub repository (`Hong2608/MaddnessEvent`).
+3. Set the **Root directory** to `maddness-event` (the module that contains the `Dockerfile`).
+4. Render will detect the `Dockerfile` automatically. Confirm that the build and start commands are correct.
+5. Set **Instance Type** to **Free** (or Hobby for better performance).
+6. Click **Create Web Service**. Render will build and deploy the container — this typically takes 3–5 minutes.
+7. Once deployed, the unique service URL (e.g. `https://maddness-event.onrender.com`) is shown in the top-left of the dashboard. This URL stays fixed for the lifetime of the service.
+8. To connect a frontend (e.g. Budibase), use this URL as the base URL for all API calls.
+
+**Notes:**
+- The application uses an H2 in-memory database, so data is reset on every redeploy or service restart. For persistent storage, switch to a hosted database (e.g. PostgreSQL on Render) and update `application.properties` accordingly.
+- Free-tier services on Render spin down after inactivity. The first request after a pause may take 30–60 seconds to respond.
+
 
 ## Project Management
-> 🚧: Include all the participants and briefly describe each of their **individual** contribution and/or roles. Screenshots/descriptions of your Kanban board or similar project management tools are welcome.
 
 ### Roles
-- Back-end developer: Charuta Pande 
-- Front-end developer: Devid Montecchiari
+
+| Role | Name | Contribution |
+|------|------|-------------|
+| Back-end developer | Charuta Pande | Designed and implemented the Spring Boot backend, including domain entities (Event, DJ, Product, TicketBooking), JPA repositories, business service layer with validation rules, REST controllers, global exception handling, Spring Security configuration, and the H2 database setup. Initialised the project in GitHub Codespaces and verified the backend on port 8080. |
+| Front-end developer | Devid Montecchiari | Designed and implemented the frontend HTML/CSS interface. Created all public-facing pages (Homepage, DJs, Tickets, Shop) and the admin dashboard using Thymeleaf templates and a shared `style.css`. Established the dark techno visual identity, the responsive navbar, hero sections, card-based layouts, and the Chart.js dashboard. |
 
 ### Milestones
-1. **Analysis**: Scenario ideation, use case analysis and user story writing.
-2. **Prototype Design**: Creation of wireframe and prototype.
-3. **Domain Design**: Definition of domain model.
-4. **Business Logic and API Design**: Definition of business logic and API.
-5. **Data and API Implementation**: Implementation of data access and business logic layers, and API.
-6. **Security and Frontend Implementation**: Integration of security framework and frontend realisation.
-7. (optional) **Deployment**: Deployment of Web application on cloud infrastructure.
 
+| Milestone | Description |
+|-----------|-------------|
+| Analysis | Scenario ideation, use case analysis, and user story writing. |
+| Prototype Design | Creation of wireframe and interactive prototype. |
+| Domain Design | Definition of the domain model (entities and relationships). |
+| Business Logic and API Design | Definition of business logic, validation rules, and API specification (`openapi.yaml`). |
+| Data and API Implementation | Implementation of JPA entities, repositories, service layer, REST controllers, and sample data initialiser. |
+| Security and Frontend Implementation | Integration of Spring Security (in-memory users, role-based access), Thymeleaf frontend pages, and admin dashboard. |
+| (optional) Deployment | Deployment of the web application on a cloud platform (Render). |
 
-#### Maintainer
+### Maintainers
+
 - Charuta Pande
 - Devid Montecchiari
 
-#### License
-- [Apache License, Version 2.0](blob/master/LICENSE)
+### License
 
-Backend Technology
-The backend of the MadnessEvents application is based on Spring Boot and was initialized by adapting the provided reference project.
-The application currently uses the following technologies and dependencies:
-
-- Spring Boot
-- Spring Data JPA
-- H2 Database Engine
-- Spring Web
-- Spring Security
-- OpenAPI / Swagger
-
-For the initial backend setup, the reference structure was reused and adapted to the MadnessEvents project. The package structure and application naming were updated to match the new project domain.
-The backend was successfully tested in GitHub Codespaces and runs on port 8080.
-Database Setup
-The application uses an H2 database for development and testing purposes. Placeholder data is initialized during startup to simplify testing of the backend without requiring manual data insertion.
-
-Notes
-At this stage, the backend setup provides the technical foundation for the next milestones, including implementation of web services, authentication, and integration with the frontend.
-
-
-
-
-
-
-
-
+Apache License, Version 2.0
