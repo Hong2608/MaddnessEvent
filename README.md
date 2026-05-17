@@ -538,8 +538,8 @@ Deployment to a cloud platform is optional but recommended for a stable, publicl
 
 | Role | Name | Contribution |
 |------|------|-------------|
-| Back-end developer | Charuta Pande | Designed and implemented the Spring Boot backend, including domain entities (Event, DJ, Product, TicketBooking), JPA repositories, business service layer with validation rules, REST controllers, global exception handling, Spring Security configuration, and the H2 database setup. Initialised the project in GitHub Codespaces and verified the backend on port 8080. |
-| Front-end developer | Devid Montecchiari | Designed and implemented the frontend HTML/CSS interface. Created all public-facing pages (Homepage, DJs, Tickets, Shop) and the admin dashboard using Thymeleaf templates and a shared `style.css`. Established the dark techno visual identity, the responsive navbar, hero sections, card-based layouts, and the Chart.js dashboard. |
+| Back-end developer |  | Designed and implemented the Spring Boot backend, including domain entities (Event, DJ, Product, TicketBooking), JPA repositories, business service layer with validation rules, REST controllers, global exception handling, Spring Security configuration, and the H2 database setup. Initialised the project in GitHub Codespaces and verified the backend on port 8080. |
+| Front-end developer |  | Designed and implemented the frontend HTML/CSS interface. Created all public-facing pages (Homepage, DJs, Tickets, Shop) and the admin dashboard using Thymeleaf templates and a shared `style.css`. Established the dark techno visual identity, the responsive navbar, hero sections, card-based layouts, and the Chart.js dashboard. |
 
 ### Milestones
 
