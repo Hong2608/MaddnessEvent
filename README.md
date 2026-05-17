@@ -168,28 +168,16 @@ The prototype should validate these flows:
 The design direction should follow a dark, high-contrast, club-inspired visual language with strong typography and image-led sections. This matches the techno and rave identity of MadnessEvent and makes the prototype useful for testing both navigation and brand presentation.
 ### Domain Design
 
-<img width="804" height="588" alt="image" src="https://github.com/user-attachments/assets/cc5bf38d-565c-492a-8878-81002eedf1ea" />
+The `ch.fhnw.madnessevent.data.domain` package contains the following domain objects / entities including getters and setters:
 
 ### Business Logic 
-> 🚧: Describe the business logic for **at least one business service** in detail. If available, show the expected path and HTPP method. The remaining documentation of APIs shall be made available in the swagger endpoint. The default Swagger UI page is available at /swagger-ui.html.
-
-Based on the UC-4, there will be two offers and a standard offer. Given a location, a message is shown accordingly:
-
-- If the location is "Basel", the message is "10% off on all large pizzas!!!"
-- If the location is "Brugg", the message is "two for the price of One on all small pizzas!!!"
-- Otherwise, the message is "No special offer".
-
-**Path**: [`/api/menu/?location="Basel"`] 
-
-**Param**: `value="location"` Admitted value: "Basel","Brugg".
-
-**Method:** `GET`
+> 🚧: Describe the business logic for **at least one business service** in detail. If available, show the expected path and HTTP method. The remaining documentation of APIs shall be made available in the swagger endpoint. The default Swagger UI page is available at /swagger-ui.html.
 
 ## Implementation
 > 🚧: Briefly describe your technology stack, which apps were used and for what.
 
 ### Backend Technology
-> 🚧: It is suggested to clone this repository, but you are free to start from fresh with a Spring Initializr. If so, describe if there are any changes to the PizzaRP e.g., different dependencies, versions & etc... Please, also describe how your database is set up. If you want a persistent or in-memory H2 database check [link](https://github.com/FHNW-INT/Pizzeria_Reference_Project/blob/main/pizza/src/main/resources/application.properties). If you have placeholder data to initialize at the app, you may use a variation of the method **initPlaceholderData()** available at [link](https://github.com/FHNW-INT/Pizzeria_Reference_Project/blob/main/pizza/src/main/java/ch/fhnw/pizza/PizzaApplication.java).
+> 🚧: It is suggested to clone this repository, but you are free to start from fresh with a Spring Initializr. If so, describe if there are any changes to the MadnessEvent backend e.g., different dependencies, versions & etc... Please also describe how your database is set up.
 
 This Web application is relying on [Spring Boot](https://projects.spring.io/spring-boot) and the following dependencies:
 
@@ -221,35 +209,33 @@ Then, the following further dependencies have been added to the project `pom.xml
 ```
 
 ### Frontend Technology
-> 🚧: Describe your views and what APIs is used on which view. If you don't have access to the Internet Technology class Budibase environment(https://inttech.budibase.app/), please write to Devid on MS teams.
+> 🚧: Describe your views and what APIs are used on which view.
 
-This Web application was developed using Budibase and it is available for preview at https://inttech.budibase.app/app/pizzeria. 
+The frontend should align with the MadnessEvent theme and connect to the backend API endpoints required for events, DJs, tickets, and merchandise.
 
 ## Execution
-> 🚧: Please describe how to execute your app and what configurations must be changed to run it. 
+> 🚧: Please describe how to execute your app and what configurations must be changed to run it.
 
-**The codespace URL of this Repo is subject to change.** Therefore, the Budibase PizzaRP webapp is not going to show any data in the view, when the URL is not updated or the codespace is offline. Follow these steps to start the webservice and reconnect the webapp to the new webservice url. 
+Run the backend application from the `maddness-event` module using the Spring Boot Maven wrapper:
 
-> 🚧: This is a shortened description for example purposes. A complete tutorial will be provided in a dedicated lecture.
+```bash
+cd maddness-event
+./mvnw spring-boot:run
+```
 
-1. Clone PizzaRP in a new repository.
-2. Start your codespace (see video guide at: [link](https://www.youtube.com/watch?v=_W9B7qc9lVc&ab_channel=GitHub))
-3. Run the PizzaRP main available at PizzaApplication.java on your own codespace.
-4. Set your app with a public port, see the guide at [link](https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace).
-5. Create an own Budibase app, you can export/import the existing Pizzeria app. Guide available at [link](https://docs.budibase.com/docs/export-and-import-apps).
-6. Update the pizzeria URL in the datasource and publish your app.
+If you use the Docker setup, build and run the container from the module root:
+
+```bash
+docker build -t maddness-event .
+docker run -p 8080:8080 maddness-event
+```
 
 ### Deployment to a PaaS
-> 🚧: Deployment to PaaS is optional but recommended as it will make your application (backend) accessible without server restart and through a unique, constantly available link.  
+> 🚧: Deployment to PaaS is optional but recommended if you want a stable publicly available endpoint.
 
-Alternatively, you can deploy your application to a free PaaS like [Render](https://dashboard.render.com/register).
-1. Refer to the Dockerfile inside the application root (FHNW-INT/Pizzeria_Reference_Project/pizza).
-2. Adapt line 13 to the name of your jar file. The jar name should be derived from the details in the pom.xml as follows:<br>
-`{artifactId}-{version}.jar` 
-2. Login to Render using your GitHub credentials.
-3. Create a new Web Service and choose Build and deploy from a Git repository.
-4. Enter the link to your (public) GitHub repository and click Continue.
-5. Enter the Root Directory (name of the folder where pom.xml resides).
+1. Deploy the `maddness-event` service using your preferred platform.
+2. Use the Dockerfile in `maddness-event/Dockerfile` and update the artifact name if needed.
+3. Ensure the backend URL is configured in your frontend application.
 6. Choose the Instance Type as Free/Hobby. All other details are default.
 7. Click on Create Web Service. Your app will undergo automatic build and deployment. Monitor the logs to view the progress or error messages. The entire process of Build+Deploy might take several minutes.
 8. After successful deployment, you can access your backend using the generated unique URL (visible on top left under the name of your web service).

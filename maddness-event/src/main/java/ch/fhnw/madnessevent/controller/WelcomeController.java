@@ -1,7 +1,7 @@
 package ch.fhnw.madnessevent.controller;
 
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,19 +11,16 @@ import io.swagger.v3.oas.annotations.Hidden;
 @Hidden // Hide this controller from the Swagger UI
 public class WelcomeController {
 
-    @GetMapping(value="/")
+    @GetMapping(value = "/")
     public String getWelcomeString() {
-        
-       
         return "Welcome to MadnessEvents!";
     }
 
-    @GetMapping(value="/user")
+    @GetMapping(value = "/user")
     public String getUserRole(Authentication auth) {
-        UserDetails userDetails = (UserDetails) auth.getPrincipal();
-        String role = userDetails.getAuthorities().toArray()[1].toString();
-        return role;
+        return auth.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .findFirst()
+                .orElse("ROLE_UNKNOWN");
     }
-
-
 }
