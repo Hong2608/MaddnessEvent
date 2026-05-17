@@ -170,6 +170,10 @@ The design direction should follow a dark, high-contrast, club-inspired visual l
 
 The `ch.fhnw.madnessevent.data.domain` package contains the following domain objects / entities including getters and setters:
 
+![Domain model](images/domain-model.png)
+
+![Use case](images/use-case.png)
+
 ### Business Logic 
 > 🚧: Describe the business logic for **at least one business service** in detail. If available, show the expected path and HTTP method. The remaining documentation of APIs shall be made available in the swagger endpoint. The default Swagger UI page is available at /swagger-ui.html.
 
