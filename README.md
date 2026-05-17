@@ -152,7 +152,7 @@ The prototype should include these main screens:
 1. `Homepage`: The homepage is the entry point of the website. It should welcome users to MadnessEvent, show the newest upcoming event, include a strong event photo, and provide a clear `Book ticket here!` action. From this page, users should be able to navigate directly to DJs, tickets, and the shop.
 2. `DJs page`: The DJs page should present a list of DJs. Each DJ entry should lead to DJ information, so visitors can learn more about the performers connected to the events.
 3. `Tickets page`: The tickets page should show the upcoming events. Each event card should include a photo, date, location, DJ, number of tickets available, and price. This page supports the main ticket discovery and booking flow.
-4. `Shop page`: The shop page should present MadnessEvent merchandise. It should include product categories such as apparel and accessories. Apparel examples include T-shirts, hoodies, hats, headwear, and tank tops. Accessory examples include branded hats, wristbands, stickers, and lighters. Product cards should show a photo, description, color, size, and price.
+4. `Shop page`: The shop page should present MadnessEvent merchandise. It should include product categories such as apparel and accessories. Apparel examples include T-shirts, hoodies, hats, headwear, and tank tops. Accessory examples include branded hats, wristbands, stickers, and lighters. Product cards should show a photo, deschription, color, size, and price.
 
 Each main page should also include a footer with `Contact us`, `FAQs`, and social media links. This keeps the user journey consistent and gives visitors access to basic support and communication options from every page.
 
@@ -171,8 +171,126 @@ The design direction should follow a dark, high-contrast, club-inspired visual l
 <img width="1577" height="1130" alt="image" src="https://github.com/user-attachments/assets/070694e3-d61e-4394-80c9-b25628b43e2d" />
 
 
-### Business Logic 
-> 🚧: Describe the business logic for **at least one business service** in detail. If available, show the expected path and HTTP method. The remaining documentation of APIs shall be made available in the swagger endpoint. The default Swagger UI page is available at /swagger-ui.html.
+### Business Logic
+
+The business logic layer is located in `MadnessEvent-boot/src/main/java/ch/fhnw/madnessevent/business/service/` and consists of four services: `EventService`, `DjService`, `ProductService`, and `TicketBookingService`. Each service sits between the REST controller and the JPA repository, enforcing validation rules and domain invariants before any data is written to the database.
+
+---
+
+### Ticket Booking Service (detailed walkthrough)
+
+The ticket booking service is the most business-critical flow of the platform. It ensures that a user can only book tickets that actually exist, and that availability is decremented atomically.
+
+**Endpoint:** `POST /api/tickets`
+
+**Request body:**
+```json
+{
+  "eventId": 1,
+  "quantity": 2,
+  "purchaserName": "Jane Doe"
+}
+```
+
+**Expected success response (HTTP 201):**
+```json
+{
+  "bookingId": 7,
+  "eventId": 1,
+  "quantity": 2,
+  "purchaserName": "Jane Doe",
+  "remainingTickets": 48,
+  "bookedAt": "2026-05-17T14:30:00"
+}
+```
+
+**Business rules enforced by `TicketBookingService.bookTickets()`:**
+
+1. **Input validation** — `eventId` and `purchaserName` must be present and non-blank. `quantity` must be at least 1. If any of these fail, a `BadRequestException` is thrown and the API returns HTTP 400 with an error message.
+2. **Event existence check** — The service calls `EventService.getEventEntityById()`, which throws `ResourceNotFoundException` (HTTP 404) if the event does not exist in the database.
+3. **Availability check** — The service compares `request.quantity()` against `event.getAvailableTickets()`. If the requested quantity exceeds available tickets, a `BadRequestException` is thrown with the message `"Only X tickets are available"`.
+4. **Atomic decrement** — If the check passes, `availableTickets` on the `Event` entity is decremented by the requested quantity and immediately persisted via `EventService.saveEvent()`. The entire method is annotated `@Transactional` to guarantee consistency.
+5. **Booking record** — A new `TicketBooking` entity is created, linked to the event, and saved. The `bookedAt` timestamp is set by a `@PrePersist` lifecycle hook on the entity.
+
+The full API documentation for all other endpoints is available at `/swagger-ui.html` when the application is running.
+
+---
+
+### Event Service
+
+`EventService` manages the full lifecycle of events (create, read, update, delete).
+
+**Key business rules:**
+- `name`, `date`, and `venue` are required. `price` must be ≥ 0 and `capacity` must be ≥ 1; otherwise a `BadRequestException` is thrown.
+- When a new event is created, `availableTickets` is automatically set to equal `capacity`.
+- When an event is updated, if the new `capacity` is lower than the current `availableTickets`, the available ticket count is capped to the new capacity.
+- DJs are resolved by name via `DjService.findOrCreateByName()`. If a DJ with the given name already exists (case-insensitive), it is reused; otherwise a placeholder profile is created automatically. This prevents duplicate DJ records when creating events.
+
+**Relevant endpoints:**
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/api/events` | List all events |
+| `GET` | `/api/events/{id}` | Get one event by ID |
+| `POST` | `/api/events` | Create an event (admin) |
+| `PUT` | `/api/events/{id}` | Update an event (admin) |
+| `DELETE` | `/api/events/{id}` | Delete an event (admin) |
+
+---
+
+### DJ Service
+
+`DjService` manages DJ profiles and is also used internally by `EventService`.
+
+**Key business rules:**
+- `name`, `genre`, and `description` are all required; blank values throw `BadRequestException`.
+- Creating a DJ with a name that already exists (case-insensitive) throws `BadRequestException` with the message `"DJ with name X already exists"`.
+- `findOrCreateByName()` is a package-private utility used exclusively by `EventService` to auto-resolve DJs from event requests without creating duplicates.
+
+**Relevant endpoints:**
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/api/djs` | List all DJs |
+| `GET` | `/api/djs/{id}` | Get one DJ by ID |
+| `POST` | `/api/djs` | Create a DJ (admin) |
+| `PUT` | `/api/djs/{id}` | Update a DJ (admin) |
+| `DELETE` | `/api/djs/{id}` | Delete a DJ (admin) |
+
+---
+
+### Product Service
+
+`ProductService` manages the merchandise catalog for the shop page.
+
+**Key business rules:**
+- `name`, `description`, and `category` are required. `price` must be ≥ 0 and `stock` must be ≥ 0; otherwise a `BadRequestException` is thrown.
+- Products belong to one of two categories (defined by the `ProductCategory` enum): `APPAREL` (T-shirts, hoodies, hats, tank-tops) or `ACCESSORIES` (wristbands, stickers, lighters). Only `APPAREL` products carry `size` (XS–XXL) and `color` fields.
+- Stock is tracked per product record. The repository supports filtering by category, size, color, and minimum stock level, enabling the shop page to show only in-stock items.
+
+**Relevant endpoints:**
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/api/products` | List all merchandise |
+| `GET` | `/api/products/{id}` | Get one product by ID |
+| `POST` | `/api/products` | Create a product (admin) |
+| `PUT` | `/api/products/{id}` | Update a product (admin) |
+| `DELETE` | `/api/products/{id}` | Delete a product (admin) |
+
+---
+
+### Domain Model Summary
+
+| Entity | Key fields | Relationships |
+|--------|-----------|---------------|
+| `Event` | `name`, `date`, `location`, `price`, `capacity`, `availableTickets`, `photoUrl` | Many-to-many with `DJ`; one-to-many with `TicketBooking` |
+| `DJ` | `name`, `genre`, `description`, `photoUrl` | Many-to-many with `Event` |
+| `Product` | `name`, `description`, `price`, `stock`, `category`, `color`, `size`, `photoUrl` | — |
+| `TicketBooking` | `quantity`, `purchaserName`, `bookedAt` | Many-to-one with `Event` |
+
+---
+
+### Error Handling
+
+All validation errors are handled centrally by `ApiExceptionHandler`. The two custom exception types are `BadRequestException` (HTTP 400) and `ResourceNotFoundException` (HTTP 404). Both return a structured JSON error body with a `code` and `message` field, consistent with the OpenAPI error schema defined in `openapi.yaml`.
 
 ## Implementation
 > 🚧: Briefly describe your technology stack, which apps were used and for what.
