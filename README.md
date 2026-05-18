@@ -206,11 +206,11 @@ The ticket booking service is the most business-critical flow of the platform. I
 
 **Business rules enforced by `TicketBookingService.bookTickets()`:**
 
-1. **Input validation** — `eventId` and `purchaserName` must be present and non-blank. `quantity` must be at least 1. If any of these fail, a `BadRequestException` is thrown and the API returns HTTP 400 with an error message.
-2. **Event existence check** — The service calls `EventService.getEventEntityById()`, which throws `ResourceNotFoundException` (HTTP 404) if the event does not exist in the database.
-3. **Availability check** — The service compares `request.quantity()` against `event.getAvailableTickets()`. If the requested quantity exceeds available tickets, a `BadRequestException` is thrown with the message `"Only X tickets are available"`.
-4. **Atomic decrement** — If the check passes, `availableTickets` on the `Event` entity is decremented by the requested quantity and immediately persisted via `EventService.saveEvent()`. The entire method is annotated `@Transactional` to guarantee consistency.
-5. **Booking record** — A new `TicketBooking` entity is created, linked to the event, and saved. The `bookedAt` timestamp is set by a `@PrePersist` lifecycle hook on the entity.
+1. **Input validation** - `eventId` and `purchaserName` must be present and non-blank. `quantity` must be at least 1. If any of these fail, a `BadRequestException` is thrown and the API returns HTTP 400 with an error message.
+2. **Event existence check** - The service calls `EventService.getEventEntityById()`, which throws `ResourceNotFoundException` (HTTP 404) if the event does not exist in the database.
+3. **Availability check** - The service compares `request.quantity()` against `event.getAvailableTickets()`. If the requested quantity exceeds available tickets, a `BadRequestException` is thrown with the message `"Only X tickets are available"`.
+4. **Atomic decrement** - If the check passes, `availableTickets` on the `Event` entity is decremented by the requested quantity and immediately persisted via `EventService.saveEvent()`. The entire method is annotated `@Transactional` to guarantee consistency.
+5. **Booking record** - A new `TicketBooking` entity is created, linked to the event, and saved. The `bookedAt` timestamp is set by a `@PrePersist` lifecycle hook on the entity.
 
 The full API documentation for all other endpoints is available at `/swagger-ui.html` when the application is running.
 
@@ -283,7 +283,7 @@ The full API documentation for all other endpoints is available at `/swagger-ui.
 |--------|-----------|---------------|
 | `Event` | `name`, `date`, `location`, `price`, `capacity`, `availableTickets`, `photoUrl` | Many-to-many with `DJ`; one-to-many with `TicketBooking` |
 | `DJ` | `name`, `genre`, `description`, `photoUrl` | Many-to-many with `Event` |
-| `Product` | `name`, `description`, `price`, `stock`, `category`, `color`, `size`, `photoUrl` | — |
+| `Product` | `name`, `description`, `price`, `stock`, `category`, `color`, `size`, `photoUrl` |  |
 | `TicketBooking` | `quantity`, `purchaserName`, `bookedAt` | Many-to-one with `Event` |
 
 ---
@@ -328,7 +328,7 @@ MadnessEvent-boot/
     │   └── service/                 # EventService, DjService, ProductService, TicketBookingService
     ├── controller/
     │   ├── dto/                     # Request/response record types (EventRequest, TicketRequest, …)
-    │   ├── ApiExceptionHandler.java # Global @RestControllerAdvice — maps exceptions to HTTP errors
+    │   ├── ApiExceptionHandler.java # Global @RestControllerAdvice - maps exceptions to HTTP errors
     │   ├── DashboardController.java # Thymeleaf admin dashboard
     │   ├── EventController.java     # REST: /api/events
     │   ├── DjController.java        # REST: /api/djs
@@ -436,8 +436,8 @@ The frontend of MadnessEvent is a static HTML/CSS interface served directly by S
 
 **Static assets:**
 
-- `static/css/style.css` — single shared stylesheet for all pages. Implements the dark techno theme: black/dark-blue backgrounds, neon green and pink accents, white text, card-based layouts, and responsive navigation.
-- `static/js/dashboard.js` — vanilla JavaScript for the admin dashboard. Updates the live clock every second and initialises a Chart.js line chart showing event counts by month.
+- `static/css/style.css` - single shared stylesheet for all pages. Implements the dark techno theme: black/dark-blue backgrounds, neon green and pink accents, white text, card-based layouts, and responsive navigation.
+- `static/js/dashboard.js` - vanilla JavaScript for the admin dashboard. Updates the live clock every second and initialises a Chart.js line chart showing event counts by month.
 
 **Theming:**
 
@@ -523,7 +523,7 @@ Deployment to a cloud platform is optional but recommended for a stable, publicl
 3. Set the **Root directory** to `maddness-event` (the module that contains the `Dockerfile`).
 4. Render will detect the `Dockerfile` automatically. Confirm that the build and start commands are correct.
 5. Set **Instance Type** to **Free** (or Hobby for better performance).
-6. Click **Create Web Service**. Render will build and deploy the container — this typically takes 3–5 minutes.
+6. Click **Create Web Service**. Render will build and deploy the container - this typically takes 3–5 minutes.
 7. Once deployed, the unique service URL (e.g. `https://maddness-event.onrender.com`) is shown in the top-left of the dashboard. This URL stays fixed for the lifetime of the service.
 8. To connect a frontend (e.g. Budibase), use this URL as the base URL for all API calls.
 
