@@ -516,7 +516,7 @@ Deployment to a cloud platform is optional but recommended for a stable, publicl
 
 **Prerequisites:**
 - A public GitHub repository containing the project (already satisfied).
-- A working `Dockerfile` in the `maddness-event/` module.
+- A working `Dockerfile` in the `MadnessEvents/` module.
 
 **Steps on Render:**
 
