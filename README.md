@@ -98,7 +98,7 @@ This combination creates a high-contrast interface that is visually striking, ea
 
 
 ### Typography
-The typography of Madness-Events is designed to support a bold nightlife identity while keeping the interface readable and easy to scan. Large headings are used in the hero and page titles to create strong visual impact, while simpler body text is used for event descriptions, ticket information, and merchandise content.
+The typography of MadnessEvents is designed to support a bold nightlife identity while keeping the interface readable and easy to scan. Large headings are used in the hero and page titles to create strong visual impact, while simpler body text is used for event descriptions, ticket information, and merchandise content.
 
 ### Graphics and Visual Style
 The website uses image-led and card-based sections to communicate the MadnessEvents identity. Even in the current prototype stage, the visual direction is clear: dark sections, bold text blocks, and highlighted action links. DJ, ticket, and merchandise content is presented using reusable cards so users can focus on the most relevant information quickly. A branded logo is also being integrated to strengthen recognition.
