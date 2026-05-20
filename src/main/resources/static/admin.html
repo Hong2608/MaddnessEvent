@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadnessEvents Admin</title>
+    <link rel="stylesheet" href="css/style.css?v=7">
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">
+        <span class="logo-icon">M</span>
+        <span class="logo-text">MadnessEvents</span>
+    </div>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="djs.html">DJs</a>
+        <a href="tickets.html">Tickets</a>
+        <a href="shop.html">Shop</a>
+        <a href="admin.html" class="active-link login-button">Admin</a>
+    </nav>
+</header>
+
+<main class="hero">
+    <div class="hero-content">
+        <p class="tagline">Admin Panel</p>
+        <h1>Manage MadnessEvents</h1>
+        <p class="hero-text">
+            Add, edit, delete, and view events, DJs, tickets, and merchandise.
+        </p>
+    </div>
+</main>
+
+<section class="events-preview">
+    <div class="container">
+        <div class="section-heading">
+            <p class="section-tag">Dashboard</p>
+            <h2>Admin management</h2>
+            <p class="section-description">
+                Select a category below to manage backend data from the frontend.
+            </p>
+        </div>
+
+        <div class="admin-buttons">
+            <button onclick="loadSection('events')">Events</button>
+            <button onclick="loadSection('djs')">DJs</button>
+            <button onclick="loadSection('tickets')">Tickets</button>
+            <button onclick="loadSection('merchandise')">Merchandise</button>
+        </div>
+
+        <div id="adminFormArea" class="admin-form-area">
+            Select a category to start.
+        </div>
+
+        <div id="adminOutput" class="events-grid">
+        </div>
+    </div>
+</section>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

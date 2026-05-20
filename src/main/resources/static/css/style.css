@@ -288,3 +288,82 @@ body {
 .event-link:hover {
     text-decoration: underline;
 }
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 16px;
+}
+
+.admin-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.admin-buttons button,
+.admin-form-area button,
+.event-card button {
+    background: #00d084;
+    color: #050505;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.admin-buttons button:hover,
+.admin-form-area button:hover,
+.event-card button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.admin-form-area {
+    margin: 24px 0;
+    padding: 24px;
+    background: #101116;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+}
+
+.admin-form-area h3 {
+    margin-bottom: 18px;
+    color: #ffffff;
+}
+
+.admin-form-area label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: #00d084;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.admin-form-area input {
+    width: 100%;
+    max-width: 520px;
+    display: block;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #07080c;
+    color: #ffffff;
+}
+
+.event-card button {
+    margin-right: 8px;
+    margin-top: 12px;
+}
+
+#adminOutput {
+    margin-top: 24px;
+}
