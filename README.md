@@ -1,4 +1,4 @@
-# Maddness Event
+# MadnessEvents
 <img width="1321" height="690" alt="image" src="https://github.com/user-attachments/assets/f530354d-ec5d-481f-9456-f969a18a7293" />
 
 
