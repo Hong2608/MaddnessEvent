@@ -295,11 +295,11 @@ The full API documentation for all other endpoints is available at `/swagger-ui.
 All validation errors are handled centrally by `ApiExceptionHandler`. The two custom exception types are `BadRequestException` (HTTP 400) and `ResourceNotFoundException` (HTTP 404). Both return a structured JSON error body with a `code` and `message` field, consistent with the OpenAPI error schema defined in `openapi.yaml`.
 
 ## Implementation
-The MadnessEvent platform is split into two modules. The `MadnessEvent-boot` module contains the fully implemented backend and frontend. The `maddness-event` module contains the earlier domain/repository scaffold and the Docker setup. The backend is a Spring Boot 3.2.2 application (Java 17) exposing a REST API. The frontend is a set of Thymeleaf HTML pages served by the same Spring Boot application, styled with a shared CSS file. The H2 in-memory database is used for development and testing, with sample data seeded automatically on startup.
+The MadnessEvents platform is split into two modules. The `MadnessEvent-boot` module contains the fully implemented backend and frontend. The `MadnessEvents` module contains the earlier domain/repository scaffold and the Docker setup. The backend is a Spring Boot 3.2.2 application (Java 17) exposing a REST API. The frontend is a set of Thymeleaf HTML pages served by the same Spring Boot application, styled with a shared CSS file. The H2 in-memory database is used for development and testing, with sample data seeded automatically on startup.
 
 ### Backend Technology
 
-The backend of MadnessEvent is a Spring Boot application located in the `MadnessEvent-boot/` module. It was bootstrapped using the [Spring Initializr](https://start.spring.io/) and adapted to the MadnessEvent project structure and domain.
+The backend of MadnessEvents is a Spring Boot application located in the `MadnessEvent-boot/` module. It was bootstrapped using the [Spring Initializr](https://start.spring.io/) and adapted to the MadnessEvent project structure and domain.
 
 **Technology stack:**
 
