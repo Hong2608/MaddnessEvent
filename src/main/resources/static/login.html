@@ -3,55 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJs - MadnessEvents</title>
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <title>Login - MadnessEvents</title>
+    <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
     <header class="navbar">
-        <div class="logo">
+        <a href="index.html" class="logo">
             <span class="logo-icon">M</span>
             <span class="logo-text">MadnessEvents</span>
-        </div>
-
+        </a>
         <nav class="nav-links">
             <a href="index.html">Home</a>
-            <a href="djs.html" class="active-link">DJs</a>
+            <a href="djs.html">DJs</a>
             <a href="tickets.html">Tickets</a>
             <a href="shop.html">Shop</a>
-            <a href="cart.html" class="cart-link"><span class="cart-icon-wrap"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg><span id="nav-cart-count" class="nav-cart-count" hidden>0</span></span></a>
-            <a href="login.html" class="login-button">Login</a>
         </nav>
     </header>
 
-    <main class="hero">
-        <div class="hero-content">
-            <p class="tagline">Featured Artists</p>
-            <h1>Meet the DJs of MadnessEvents</h1>
-            <p class="hero-text">
-                Discover the artists behind the sound, the energy, and the unforgettable nights.
-            </p>
+    <section class="login-section">
+        <div class="login-card">
+            <p class="section-tag">Admin Area</p>
+            <h1>Login</h1>
+            <p class="login-hint">Enter your admin credentials to manage events, DJs, tickets and merchandise.</p>
+
+            <div id="error-msg" class="login-error" style="display:none">Invalid username or password.</div>
+            <div id="logout-msg" class="login-info" style="display:none">You have been logged out.</div>
+
+            <form method="post" action="/perform-login" class="login-form">
+                <label class="login-label" for="username">Username</label>
+                <input class="login-input" id="username" name="username" autocomplete="username" required autofocus />
+
+                <label class="login-label" for="password">Password</label>
+                <input class="login-input" id="password" type="password" name="password" autocomplete="current-password" required />
+
+                <button class="event-link buy-btn buy-large" type="submit">Sign in</button>
+            </form>
+
+            <p class="login-hint" style="margin-top:24px">Demo credentials: <strong>admin / admin123</strong></p>
         </div>
-    </main>
+    </section>
 
-    <section class="featured-section">
-    <div class="container">
-        <div class="section-heading">
-            <p class="section-tag">Lineup</p>
-            <h2>Featured DJs</h2>
-            <p class="section-description">
-                A selection of artists bringing energy, atmosphere, and unforgettable sound to MadnessEvents.
-            </p>
-        </div>
-
-        <div class="events-grid" id="djsGrid">
-    <p class="section-description">Loading DJs...</p>
-        </div>
-</div>
-</section>
-
-   <script src="js/djs.js"></script>
-
-    <script src="js/cart-badge.js"></script>
+    <script>
+        const params = new URLSearchParams(location.search);
+        if (params.has('error')) document.getElementById('error-msg').style.display = 'block';
+        if (params.has('logout')) document.getElementById('logout-msg').style.display = 'block';
+    </script>
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-brand">

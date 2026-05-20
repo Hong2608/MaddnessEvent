@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJs - MadnessEvents</title>
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <title>Product - MadnessEvents</title>
+    <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
     <header class="navbar">
@@ -12,46 +12,26 @@
             <span class="logo-icon">M</span>
             <span class="logo-text">MadnessEvents</span>
         </div>
-
         <nav class="nav-links">
             <a href="index.html">Home</a>
-            <a href="djs.html" class="active-link">DJs</a>
+            <a href="djs.html">DJs</a>
             <a href="tickets.html">Tickets</a>
-            <a href="shop.html">Shop</a>
+            <a href="shop.html" class="active-link">Shop</a>
             <a href="cart.html" class="cart-link"><span class="cart-icon-wrap"><svg class="cart-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg><span id="nav-cart-count" class="nav-cart-count" hidden>0</span></span></a>
             <a href="login.html" class="login-button">Login</a>
         </nav>
     </header>
 
-    <main class="hero">
-        <div class="hero-content">
-            <p class="tagline">Featured Artists</p>
-            <h1>Meet the DJs of MadnessEvents</h1>
-            <p class="hero-text">
-                Discover the artists behind the sound, the energy, and the unforgettable nights.
-            </p>
+    <section class="detail-section">
+        <div class="container">
+            <div id="product-detail" class="detail-grid">
+                <p class="section-description">Loading product...</p>
+            </div>
         </div>
-    </main>
-
-    <section class="featured-section">
-    <div class="container">
-        <div class="section-heading">
-            <p class="section-tag">Lineup</p>
-            <h2>Featured DJs</h2>
-            <p class="section-description">
-                A selection of artists bringing energy, atmosphere, and unforgettable sound to MadnessEvents.
-            </p>
-        </div>
-
-        <div class="events-grid" id="djsGrid">
-    <p class="section-description">Loading DJs...</p>
-        </div>
-</div>
-</section>
-
-   <script src="js/djs.js"></script>
+    </section>
 
     <script src="js/cart-badge.js"></script>
+    <script src="js/product-detail.js"></script>
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-brand">
