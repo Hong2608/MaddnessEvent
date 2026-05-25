@@ -67,12 +67,17 @@ body {
     justify-content: center;
     align-items: center;
     padding: 100px 20px;
+    min-height: 70vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)), url("../images/bg1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero-content {
     max-width: 900px;
     text-align: center;
-    background-color: #0b0f17;
+    background-color: rgba(11, 15, 23, 0.70);
     padding: 60px 40px;
     border-radius: 24px;
 }
@@ -620,4 +625,78 @@ button.buy-btn[disabled] { background: #555; cursor: not-allowed; color: #ccc; }
     text-align: center;
     color: #6e6e85;
     font-size: 13px;
+}
+
+/* Background image slideshow */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: backgroundSlideshow 5s infinite;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+@keyframes backgroundSlideshow {
+    0% {
+        background-image: url("../images/bg1.jpg");
+    }
+    20% {
+        background-image: url("../images/bg2.jpg");
+    }
+    40% {
+        background-image: url("../images/bg3.jpg");
+    }
+    60% {
+        background-image: url("../images/bg4.jpg");
+    }
+    80% {
+        background-image: url("../images/bg5.jpg");
+    }
+    100% {
+        background-image: url("../images/bg1.jpg");
+    }
+}
+
+
+.hero-card-slideshow {
+    width: 100%;
+    height: 220px;
+    border-radius: 18px;
+    margin-bottom: 28px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: heroCardSlideshow 12s infinite;
+}
+
+@keyframes heroCardSlideshow {
+    0% {
+        background-image: url("../images/bg5.jpg");
+    }
+    20% {
+        background-image: url("../images/bg4.jpg");
+    }
+    40% {
+        background-image: url("../images/bg3.jpg");
+    }
+    60% {
+        background-image: url("../images/bg2.jpg");
+    }
+    80% {
+        background-image: url("../images/bg5.jpg");
+    }
+    100% {
+        background-image: url("../images/bg1.jpg");
+    }
 }
