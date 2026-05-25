@@ -1,559 +1,354 @@
 # MadnessEvents
+
 <img width="1321" height="690" alt="image" src="https://github.com/user-attachments/assets/f530354d-ec5d-481f-9456-f969a18a7293" />
 
+MadnessEvents is a dynamic and specialized organization in the planning of techno and rave events across Switzerland, for its own high energy and quick growing community. To expand its reach across young people and strengthen the involvement of its audience, MadnessEvents decided to release its own brand-new website. This platform is the main destination where customers can discover upcoming events, buy tickets, browse exclusive branded merchandise, and learn about featured DJs — all in a unified digital space that reflects the unique and vibrant identity of the brand.
 
-MadnessEvents is a dynamic and specialized organization in the planning of techno and rave events across Switzerland, for its own high energy and quick growing community. To expand its reach across young people and strengthen the involvement of its audience, MadnessEvents decided to release its own brand-new website. This platform is planned to be the main destination where customers can easily buy tickets for future upcoming events, buy the exclusive branded merchandise, and receive news about the future events, all these features in a unified digital space that reflects the unique and vibrant identity of the brand. 
-The aim of the creation of a web shop is then to satisfy those needs, giving MadnessEvents the full control upon its business and on the brand representation towards the full user experience. Furthermore, the techno and rave industry represents a promising market opportunity, with a growing demand of memorable and impactful experiences and exclusive branded merchandise, related to the continuous growth of the business since 2020. The web shop will then exploit this opportunity, not only by facilitating tickets sales, but also by offering limited editions merchandise items, to capture the unique atmosphere of each event and performer. The website will also represent essential details like DJs’ background and information, the specifics of the venue, the activities in program, and finally a full monthly schedule. The website will be optimized to handle the peaks of users traffic, especially during the release of either tickets or merchandise, and will be characterized by a vibrant and attractive techno-themed interface. As the community will keep on growing in number, this platform has the potential to grow with it, by integrating new functionalities like the sales of early access privileges, exclusive content, and loyalty rewards.
-
+The aim of the web shop is to satisfy these needs by giving MadnessEvents full control over its business and brand representation. The techno and rave industry represents a promising market opportunity, with growing demand for memorable experiences and exclusive branded merchandise. The website not only facilitates ticket sales but also offers limited edition merchandise items, captures the atmosphere of each event and performer, and presents essential information about DJs, venues, and program schedules.
 
 #### Contents:
 - [Analysis](#analysis)
   - [Project Analysis](#project-analysis)
   - [Scenario](#scenario)
   - [User Stories](#user-stories)
-  - [Use Case](#use-case)
+  - [Use Cases](#use-cases)
 - [Design](#design)
-  - [Prototype Design](#prototype-design)
-  - [Domain Design](#domain-design)
-  - [Business Logic](#business-logic)
+  - [Corporate Identity](#corporate-identity)
+  - [Color Scheme](#color-scheme)
+  - [Layout](#layout)
+  - [Pages](#pages)
+- [Domain Design](#domain-design)
+- [Business Logic](#business-logic)
+- [Authentication & Security](#authentication--security)
+- [Frontend Features](#frontend-features)
+  - [Cart & Checkout Flow](#cart--checkout-flow)
+  - [Detail Pages](#detail-pages)
+  - [Footer](#footer)
+  - [Admin Panel](#admin-panel)
 - [Implementation](#implementation)
   - [Backend Technology](#backend-technology)
   - [Frontend Technology](#frontend-technology)
+  - [Project Structure](#project-structure)
+- [Execution](#execution)
+  - [Run Locally](#run-locally)
+  - [Run in GitHub Codespaces](#run-in-github-codespaces)
 - [Project Management](#project-management)
   - [Roles](#roles)
   - [Milestones](#milestones)
 
+## Analysis
+
 ### Project Analysis
 
-MadnessEvent operates in a market where audience attention is strongly influenced by visual identity, speed of access to information, and ease of purchase. The website must therefore do more than present static information. It has to support the brand commercially and communicate the event experience clearly enough that users can move from discovery to purchase without friction.
+MadnessEvents operates in a market where audience attention is strongly influenced by visual identity, speed of access to information, and ease of purchase. The website must do more than present static information — it has to support the brand commercially and communicate the event experience clearly enough that users can move from discovery to purchase without friction.
 
-The current business need is a single digital platform that combines event visibility, brand storytelling, and commercial interaction. At present, a fragmented flow would force users to search for event details, tickets, merchandise, and updates across multiple channels. This increases the risk of lost sales, inconsistent information, and weaker brand control.
+The analysis identifies three main requirements:
 
-The analysis identifies three main requirements for the planned website:
-
-- It must present upcoming events clearly, with enough detail for users to decide whether they want to attend.
-- It must support a commercial journey where users can buy tickets and branded merchandise in a structured and trustworthy way.
-- It must reflect the visual identity of MadnessEvent through a consistent techno-inspired interface that differentiates the brand from generic event websites.
-
-From a user perspective, the most important quality attributes are usability, mobile responsiveness, visual consistency, and clear navigation. From a business perspective, the most important goals are stronger brand positioning, direct customer reach, and support for ticket and merchandise sales.
-
-This makes the website a business platform, not only a promotional page. The early design work therefore has to validate both the structure of the content and the logic of the main user journeys before implementation starts.
+- Present upcoming events clearly, with enough detail for users to decide whether to attend.
+- Support a commercial journey where users can buy tickets and branded merchandise in a structured and trustworthy way.
+- Reflect the visual identity of MadnessEvents through a consistent techno-inspired interface.
 
 ### Scenario
 
-MadnessEvent is a growing organizer of techno and rave events in Switzerland. As its audience expands, the organization needs a dedicated website that acts as the main entry point for customers, followers, and potential buyers. The website should allow visitors to discover future events, understand the lineup and venue details, explore official merchandise, and engage with the brand in a coherent online environment.
+MadnessEvents is a growing organizer of techno and rave events in Switzerland. As its audience expands, the organization needs a dedicated website that acts as the main entry point for customers, followers, and potential buyers. The website allows visitors to discover future events, understand the lineup and venue details, explore official merchandise, and engage with the brand in a coherent online environment.
 
-The problem today is that users do not have one structured platform where all relevant information and purchase options are available together. Event communication, product promotion, and brand presentation are harder to manage when they are spread across separate channels. This weakens the customer journey and limits the organization's control over how its brand is experienced.
-
-The proposed solution is a web platform that brings together event discovery, event detail pages, ticket purchase paths, merchandise browsing, and general brand information. The website should work on mobile and desktop devices and should be designed for periods of high traffic, especially when new tickets or limited products are released.
-
-The scenario assumes a target audience of young, digitally active users who expect fast access to information, visually engaging design, and smooth navigation. The website must therefore emphasize strong first impressions, clear content hierarchy, and direct calls to action such as viewing event details, buying tickets, or browsing merchandise.
-
-In later phases, the platform can evolve with more advanced features such as account-based services, loyalty rewards, premium access, or exclusive digital content. For the current milestone, the scenario defines the business context and user environment that guide the prototype.
+The scenario targets young, digitally active users who expect fast access to information, visually engaging design, and smooth navigation.
 
 ### User Stories
-1. As a visitor, I want to see upcoming events with date, venue, DJ lineup, and price, so that I can decide which event to attend.
-2. As a visitor, I want to open a specific event page, so that I can read full event details before booking.
-3. As a user, I want to book tickets for an event, so that I can secure my spot online.
-4. As a user, I want to see ticket availability and price before checkout, so that I can make an informed purchase.
-5. As a user, I want to browse merchandise categories, so that I can discover products related to MadnessEvent.
-6. As a user, I want to open a product page with image, size, color, and price, so that I can choose the correct item.
-7. As a user, I want to add merchandise items to my cart and update quantities, so that I can control my purchase.
-8. As a user, I want to complete checkout for tickets and merchandise, so that I can receive my order.
-9. As a visitor, I want to browse DJs and their profiles, so that I can discover performers before events.
-10. As an admin, I want to create, update, and remove events, so that published event data stays accurate.
-11. As an admin, I want to create, update, and remove merchandise products, so that the shop catalog stays current.
-12. As an admin, I want to update DJ profiles, so that artist information remains correct and useful.
 
-### Use Case
+1. As a visitor, I want to see upcoming events with date, venue, and a short description, so that I can decide which event to attend.
+2. As a visitor, I want to open a specific event page to read full event details before booking.
+3. As a user, I want to click **Buy Tickets** and have the ticket added to my shopping cart automatically.
+4. As a visitor, I want to browse DJs and click **View DJ Profile** to see their bio, genre, country, and photo.
+5. As a user, I want to browse merchandise categories so I can discover products related to MadnessEvents.
+6. As a user, I want to open a product page with image, name, description and price, then add the item to my cart.
+7. As a user, I want to see my cart with thumbnails, names, quantities, and a running total.
+8. As a user, I want to update quantities or proceed to checkout from the cart page.
+9. As an admin, I want to log in with username and password to access an admin panel.
+10. As an admin, I want to add, edit, and remove events, DJs, tickets, and merchandise from the admin panel.
+11. As a visitor, I want a consistent footer with brand info, directory, legal, and contact links on every page.
 
-- UC-1 [Browse events] User can view all upcoming events.
-- UC-2 [View event details] User can view event details including date, venue, DJ lineup, price, and availability.
-- UC-3 [Book ticket] User can select an event and book tickets.
-- UC-4 [Browse DJs] User can view all DJs.
-- UC-5 [View DJ profile] User can view specific DJ information.
-- UC-6 [Browse products] User can view all merchandise products.
-- UC-7 [View product details] User can view product details including image, description, color, size, and price.
-- UC-8 [Add product to cart] User can add merchandise to cart.
-- UC-9 [Update cart] User can update quantity or remove cart items.
-- UC-10 [Checkout] User can complete purchase for tickets and/or merchandise.
-- UC-11 [Manage events] Admin can create, edit, and delete events.
-- UC-12 [Manage products] Admin can create, edit, and delete merchandise products.
-- UC-13 [Manage DJs] Admin can create, edit, and delete DJ profiles.
+### Use Cases
 
-### Design
-The design of “MaddnessEvent” is based on a strong and recognizable corporate identity that reflects the atmosphere of techno and rave events. The website uses a dark visual style to create a club-inspired look and to strengthen the premium nightlife feeling of the brand. This helps distinguish Madness-Events from generic event websites and supports a more immersive user experience.
+- **UC-1** [Browse events] Visitor views all upcoming events.
+- **UC-2** [View event details] Visitor opens a specific event page with full description.
+- **UC-3** [Buy ticket] Visitor adds a ticket to the cart from the event card or detail page.
+- **UC-4** [Browse DJs] Visitor views all DJs with their profile photo and genre.
+- **UC-5** [View DJ profile] Visitor opens a DJ's dedicated profile page.
+- **UC-6** [Browse merchandise] Visitor views all merchandise products.
+- **UC-7** [View product details] Visitor opens a product page with image, name, description, price.
+- **UC-8** [Add product to cart] Visitor adds merchandise to the cart.
+- **UC-9** [Manage cart] User updates item quantities or removes items.
+- **UC-10** [Checkout] User completes purchase via the Checkout button.
+- **UC-11** [Login] Admin signs in with credentials.
+- **UC-12** [Manage events] Admin creates, updates, deletes events.
+- **UC-13** [Manage DJs] Admin creates, updates, deletes DJ profiles.
+- **UC-14** [Manage tickets] Admin creates, updates, deletes tickets.
+- **UC-15** [Manage merchandise] Admin creates, updates, deletes products.
 
-### Corporate Identity (CI)
-The website is designed to communicate MaddnessEvent consistently across all main pages. The design choices were made to support a strong event-oriented identity and a memorable first impression.
+## Design
+
+### Corporate Identity
+
+The website communicates MadnessEvents through a dark, club-inspired visual style with high-contrast neon accents that evoke the atmosphere of techno events.
 
 ### Color Scheme
-The selected color palette is based on:
-- black and very dark blue background tones for a modern nightlife identity
-- bright neon green accents for buttons, highlights, and active navigation
-- pink accent buttons and links for strong contrast and visual energy
-- white and light gray text for readability
-This combination creates a high-contrast interface that is visually striking, easy to read, and consistent with the electronic music scene.
-<img width="1753" height="837" alt="image" src="https://github.com/user-attachments/assets/fea83628-3018-4273-ad64-835ceda9ae8f" />
 
-
-### Typography
-The typography of MadnessEvents is designed to support a bold nightlife identity while keeping the interface readable and easy to scan. Large headings are used in the hero and page titles to create strong visual impact, while simpler body text is used for event descriptions, ticket information, and merchandise content.
-
-### Graphics and Visual Style
-The website uses image-led and card-based sections to communicate the MadnessEvents identity. Even in the current prototype stage, the visual direction is clear: dark sections, bold text blocks, and highlighted action links. DJ, ticket, and merchandise content is presented using reusable cards so users can focus on the most relevant information quickly. A branded logo is also being integrated to strengthen recognition.
+- Black and very dark blue background tones for a modern nightlife identity
+- Bright neon green (`#76ff7a`) accents for active navigation, highlights, and success states
+- Pink (`#ff4fc3`) accent for call-to-action buttons and badges
+- White and light grey text for readability
 
 ### Layout
-The layout is designed to be clear and consistent across all main pages. The implemented frontend currently follows a shared structure:
-- header with logo and navigation
-- hero section or page title
-- card-based content sections
-- clear action buttons and links
-- separate public pages for DJs, Tickets, and Shop
-This structure creates familiarity and helps users move through the platform more easily.
 
-### User Experience (UX)
-The UX design focuses on simplicity, speed, and direct navigation. Users should be able to move quickly from discovering an event to viewing DJs, opening the tickets page, or browsing merchandise. The homepage already supports this with direct navigation links, a hero call-to-action button, and linked content cards. The design also aims to remain usable across different screen sizes through a clear and responsive structure.
+All pages share a consistent structure:
 
-### Current Design Implementation
-So far, the frontend includes:
-- a public homepage with navbar and hero section
-- separate DJs, Tickets, and Shop pages
-- active navigation highlighting
-- a dark techno-inspired theme
-- reusable content cards for featured sections and previews
-- CTA links from homepage sections to the related pages
-- a separate admin page protected from the public homepage
+- **Header** with logo, navigation links (Home, DJs, Tickets, Shop), cart icon with live item-count badge, and Login button
+- **Hero section** with a tagline, large heading, and short description
+- **Content section** with reusable image-led cards
+- **Footer** with brand block, directory, legal links, contact info, and social icons (Instagram, Twitter, Facebook, Email)
 
-### Design Goal
-The overall goal of the design is to create a consistent digital identity for Madness-Events that is visually engaging, easy to use, and aligned with the brand’s position as a modern organizer of techno and rave events. The design should support both brand presentation and the main commercial journeys of the platform, especially ticket discovery and merchandise browsing.
+### Pages
 
+| Page | URL | Purpose |
+|---|---|---|
+| Home | `/index.html` | Landing page with branding |
+| Tickets | `/tickets.html` | Dynamic list of upcoming events with image cards, Buy Tickets, View Details |
+| Event detail | `/event-detail.html?id={id}` | Single event with large image, description, Buy Tickets |
+| DJs | `/djs.html` | Dynamic list of DJs with photos and genres |
+| DJ detail | `/dj-detail.html?id={id}` | DJ profile with bio, country, photo banner, upcoming events |
+| Shop | `/shop.html` | Dynamic merchandise list with product images, Add to Cart, View Item |
+| Product detail | `/product-detail.html?id={id}` | Single product with image, price, description, Add to Cart |
+| Cart | `/cart.html` | Shopping cart with thumbnails, quantity controls, total, Checkout |
+| Login | `/login.html` | Styled login form for admin |
+| Admin | `/admin.html` | Admin CRUD panel for events / DJs / tickets / merchandise |
+| Privacy / Terms / Cookies / Ticket T&C | `/privacy.html`, `/terms.html`, `/cookies.html`, `/ticket-tc.html` | Footer legal pages |
+| Vulnerability / Press Kit | `/vulnerability.html`, `/press.html` | Footer directory pages |
 
-### Wireframe
+## Domain Design
 
-<img width="1464" height="561" alt="image" src="https://github.com/user-attachments/assets/4cd9be89-80ee-4e71-9f47-17f0d6a26f1c" />
-<img width="1086" height="1142" alt="image" src="https://github.com/user-attachments/assets/a829d9a4-b48b-4414-99a8-8c25f1c95232" />
-<img width="1116" height="1131" alt="image" src="https://github.com/user-attachments/assets/d9d40786-a22a-4d29-b1b8-84e1fc1e642b" />
-<img width="1115" height="1113" alt="image" src="https://github.com/user-attachments/assets/be3549ec-350c-4730-b8a7-a56436308bdd" />
-<img width="1091" height="1334" alt="image" src="https://github.com/user-attachments/assets/9f36380e-3f8f-4e67-864d-40195e094138" />
+The domain consists of four JPA entities in `ch.fhnw.madnessevents.data.domain`:
 
+| Entity | Fields | Relationships |
+|---|---|---|
+| **Event** | `id`, `title`, `date`, `location`, `description` | One-to-many with `Ticket` |
+| **Dj** | `id`, `stageName`, `genre`, `country`, `imageUrl`, `bio` | — |
+| **Ticket** | `id`, `type`, `price`, `availability` | Many-to-one with `Event` |
+| **Merchandise** | `id`, `name`, `price`, `stock`, `category` | — |
 
-### Prototype
+All entities are persisted in an H2 in-memory database. The schema is auto-generated by Hibernate on startup. Seed data is inserted by `MadnessEventsApplication#initData`, providing 4 DJs, 4 events, 5 tickets, and 6 merchandise items so the public pages render with realistic content out of the box.
 
-The prototype is intended to validate the page structure, navigation flow, and main user journey before backend development. At this stage, realistic placeholder data is sufficient. The prototype does not need live integration, but it should clearly show how a visitor moves through the MadnessEvent website.
+## Business Logic
 
-The prototype should use a consistent navigation bar on all main pages. The navigation should include:
-
-- `Homepage`
-- `DJs`
-- `Tickets`
-- `Shop`
-
-The prototype should include these main screens:
-
-1. `Homepage`: The homepage is the entry point of the website. It should welcome users to MadnessEvent, show the newest upcoming event, include a strong event photo, and provide a clear `Book ticket here!` action. From this page, users should be able to navigate directly to DJs, tickets, and the shop.
-2. `DJs page`: The DJs page should present a list of DJs. Each DJ entry should lead to DJ information, so visitors can learn more about the performers connected to the events.
-3. `Tickets page`: The tickets page should show the upcoming events. Each event card should include a photo, date, location, DJ, number of tickets available, and price. This page supports the main ticket discovery and booking flow.
-4. `Shop page`: The shop page should present MadnessEvent merchandise. It should include product categories such as apparel and accessories. Apparel examples include T-shirts, hoodies, hats, headwear, and tank tops. Accessory examples include branded hats, wristbands, stickers, and lighters. Product cards should show a photo, deschription, color, size, and price.
-
-Each main page should also include a footer with `Contact us`, `FAQs`, and social media links. This keeps the user journey consistent and gives visitors access to basic support and communication options from every page.
-
-The prototype should validate these flows:
-
-- User enters the homepage and sees the newest upcoming event.
-- User uses the navigation bar to move between homepage, DJs, tickets, and shop.
-- User opens the DJs page and views DJ information.
-- User opens the tickets page and compares event details before booking.
-- User uses the booking action to move toward ticket purchase.
-- User browses the shop and compares merchandise by category, description, size, color, and price.
-
-The design direction should follow a dark, high-contrast, club-inspired visual language with strong typography and image-led sections. This matches the techno and rave identity of MadnessEvent and makes the prototype useful for testing both navigation and brand presentation.
-### Domain Design
-
-<img width="1577" height="1130" alt="image" src="https://github.com/user-attachments/assets/070694e3-d61e-4394-80c9-b25628b43e2d" />
-
-
-### Business Logic
-
-The business logic layer is located in `MadnessEvent-boot/src/main/java/ch/fhnw/madnessevent/business/service/` and consists of four services: `EventService`, `DjService`, `ProductService`, and `TicketBookingService`. Each service sits between the REST controller and the JPA repository, enforcing validation rules and domain invariants before any data is written to the database.
-
----
-
-### Ticket Booking Service (detailed walkthrough)
-
-The ticket booking service is the most business-critical flow of the platform. It ensures that a user can only book tickets that actually exist, and that availability is decremented atomically.
-
-**Endpoint:** `POST /api/tickets`
-
-**Request body:**
-```json
-{
-  "eventId": 1,
-  "quantity": 2,
-  "purchaserName": "Jane Doe"
-}
-```
-
-**Expected success response (HTTP 201):**
-```json
-{
-  "bookingId": 7,
-  "eventId": 1,
-  "quantity": 2,
-  "purchaserName": "Jane Doe",
-  "remainingTickets": 48,
-  "bookedAt": "2026-05-17T14:30:00"
-}
-```
-
-**Business rules enforced by `TicketBookingService.bookTickets()`:**
-
-1. **Input validation** - `eventId` and `purchaserName` must be present and non-blank. `quantity` must be at least 1. If any of these fail, a `BadRequestException` is thrown and the API returns HTTP 400 with an error message.
-2. **Event existence check** - The service calls `EventService.getEventEntityById()`, which throws `ResourceNotFoundException` (HTTP 404) if the event does not exist in the database.
-3. **Availability check** - The service compares `request.quantity()` against `event.getAvailableTickets()`. If the requested quantity exceeds available tickets, a `BadRequestException` is thrown with the message `"Only X tickets are available"`.
-4. **Atomic decrement** - If the check passes, `availableTickets` on the `Event` entity is decremented by the requested quantity and immediately persisted via `EventService.saveEvent()`. The entire method is annotated `@Transactional` to guarantee consistency.
-5. **Booking record** - A new `TicketBooking` entity is created, linked to the event, and saved. The `bookedAt` timestamp is set by a `@PrePersist` lifecycle hook on the entity.
-
-The full API documentation for all other endpoints is available at `/swagger-ui.html` when the application is running.
-
----
-
-### Event Service
-
-`EventService` manages the full lifecycle of events (create, read, update, delete).
-
-**Key business rules:**
-- `name`, `date`, and `venue` are required. `price` must be ≥ 0 and `capacity` must be ≥ 1; otherwise a `BadRequestException` is thrown.
-- When a new event is created, `availableTickets` is automatically set to equal `capacity`.
-- When an event is updated, if the new `capacity` is lower than the current `availableTickets`, the available ticket count is capped to the new capacity.
-- DJs are resolved by name via `DjService.findOrCreateByName()`. If a DJ with the given name already exists (case-insensitive), it is reused; otherwise a placeholder profile is created automatically. This prevents duplicate DJ records when creating events.
+The business layer in `ch.fhnw.madnessevents.business` contains four services: `EventService`, `DjService`, `TicketService`, `MerchandiseService`. Each is a thin wrapper over the corresponding Spring Data JPA repository providing standard CRUD plus a `findById` that throws HTTP 404 via `ResponseStatusException` if the record is missing.
 
 **Relevant endpoints:**
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/events` | List all events |
-| `GET` | `/api/events/{id}` | Get one event by ID |
-| `POST` | `/api/events` | Create an event (admin) |
-| `PUT` | `/api/events/{id}` | Update an event (admin) |
-| `DELETE` | `/api/events/{id}` | Delete an event (admin) |
 
----
+| Method | Path | Description | Access |
+|---|---|---|---|
+| `GET` | `/api/events` | List all events | Public |
+| `GET` | `/api/events/{id}` | Get one event by id | Public |
+| `POST` | `/api/events` | Create an event | **Admin** |
+| `PUT` | `/api/events/{id}` | Update an event | **Admin** |
+| `DELETE` | `/api/events/{id}` | Delete an event | **Admin** |
+| `GET` | `/api/djs` | List all DJs | Public |
+| `GET` | `/api/djs/{id}` | Get one DJ | Public |
+| `POST` / `PUT` / `DELETE` | `/api/djs[/{id}]` | Manage DJs | **Admin** |
+| `GET` | `/api/tickets` | List all tickets with their event | Public |
+| `GET` | `/api/tickets/{id}` | Get one ticket | Public |
+| `POST` / `PUT` / `DELETE` | `/api/tickets[/{id}]` | Manage tickets | **Admin** |
+| `GET` | `/api/merchandise` | List all merchandise | Public |
+| `GET` | `/api/merchandise/{id}` | Get one product | Public |
+| `POST` / `PUT` / `DELETE` | `/api/merchandise[/{id}]` | Manage merchandise | **Admin** |
+| `GET` | `/hello` | Health-check endpoint | Public |
 
-### DJ Service
+Interactive API documentation is available at `/swagger-ui.html` when the application is running.
 
-`DjService` manages DJ profiles and is also used internally by `EventService`.
+## Authentication & Security
 
-**Key business rules:**
-- `name`, `genre`, and `description` are all required; blank values throw `BadRequestException`.
-- Creating a DJ with a name that already exists (case-insensitive) throws `BadRequestException` with the message `"DJ with name X already exists"`.
-- `findOrCreateByName()` is a package-private utility used exclusively by `EventService` to auto-resolve DJs from event requests without creating duplicates.
+Security is enforced by Spring Security (`ch.fhnw.madnessevents.security.SecurityConfig`).
 
-**Relevant endpoints:**
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/djs` | List all DJs |
-| `GET` | `/api/djs/{id}` | Get one DJ by ID |
-| `POST` | `/api/djs` | Create a DJ (admin) |
-| `PUT` | `/api/djs/{id}` | Update a DJ (admin) |
-| `DELETE` | `/api/djs/{id}` | Delete a DJ (admin) |
+- **Login flow:** form-based login at `/login.html`. Submitting the form posts credentials to `/perform-login`. On success the user is redirected to `/admin.html`; on failure to `/login.html?error`.
+- **Logout:** posting to `/logout` invalidates the session and returns to `/`.
+- **Default credentials:** `admin` / `admin123` (in-memory user with `ROLE_ADMIN`, BCrypt-hashed).
+- **Authorization rules:**
+  - All public pages, all `GET /api/**`, css/js/images, swagger and h2-console are open.
+  - `POST` / `PUT` / `DELETE` on any `/api/**` requires `ROLE_ADMIN`.
+  - `/admin.html` and `/admin` require `ROLE_ADMIN` — anonymous users are redirected to `/login.html`.
 
----
+## Frontend Features
 
-### Product Service
+### Cart & Checkout Flow
 
-`ProductService` manages the merchandise catalog for the shop page.
+The cart is implemented entirely in the browser using `localStorage` so it survives page reloads without any server-side session state. The shared helper `js/cart-badge.js` exposes a `window.Cart` API (`add`, `setQty`, `remove`, `read`, `total`, `count`) and renders a live count badge in the navbar cart icon.
 
-**Key business rules:**
-- `name`, `description`, and `category` are required. `price` must be ≥ 0 and `stock` must be ≥ 0; otherwise a `BadRequestException` is thrown.
-- Products belong to one of two categories (defined by the `ProductCategory` enum): `APPAREL` (T-shirts, hoodies, hats, tank-tops) or `ACCESSORIES` (wristbands, stickers, lighters). Only `APPAREL` products carry `size` (XS–XXL) and `color` fields.
-- Stock is tracked per product record. The repository supports filtering by category, size, color, and minimum stock level, enabling the shop page to show only in-stock items.
+- Clicking **Buy Tickets** on a ticket card or event detail page adds the ticket to the cart and redirects to `/cart.html`.
+- Clicking **Add to Cart** on a merchandise card or product detail page does the same for that product.
+- The cart page (`cart.html`) shows each item with a thumbnail, name, type label (Ticket / Merch), unit price, quantity ± buttons, line subtotal, and running total.
+- The **Checkout** button clears the cart and displays an order confirmation message.
 
-**Relevant endpoints:**
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/products` | List all merchandise |
-| `GET` | `/api/products/{id}` | Get one product by ID |
-| `POST` | `/api/products` | Create a product (admin) |
-| `PUT` | `/api/products/{id}` | Update a product (admin) |
-| `DELETE` | `/api/products/{id}` | Delete a product (admin) |
+### Detail Pages
 
----
+Three dedicated detail pages provide a focused view of a single resource. All three follow the same image-banner + body layout for visual consistency.
 
-### Domain Model Summary
+- **`event-detail.html?id={id}`** — large event image, date, venue, ticket type, price, availability, full description, Buy Tickets button.
+- **`dj-detail.html?id={id}`** — DJ photo, stage name, genre, country, biography, and a list of upcoming performances featuring that DJ.
+- **`product-detail.html?id={id}`** — product image, category, name, price, stock status, description, Add to Cart button.
 
-| Entity | Key fields | Relationships |
-|--------|-----------|---------------|
-| `Event` | `name`, `date`, `location`, `price`, `capacity`, `availableTickets`, `photoUrl` | Many-to-many with `DJ`; one-to-many with `TicketBooking` |
-| `DJ` | `name`, `genre`, `description`, `photoUrl` | Many-to-many with `Event` |
-| `Product` | `name`, `description`, `price`, `stock`, `category`, `color`, `size`, `photoUrl` |  |
-| `TicketBooking` | `quantity`, `purchaserName`, `bookedAt` | Many-to-one with `Event` |
+Since the `Event` and `Merchandise` entities do not yet carry image URLs, the JS layer applies a curated set of Unsplash dummy images (with named matches for the seeded items "Madness Black Tee", "Neon Pulse Hoodie", "Basel Rave Cap") so every card and detail page looks professional.
 
----
+### Footer
 
-### Error Handling
+Every public page ends with a site-wide footer containing:
 
-All validation errors are handled centrally by `ApiExceptionHandler`. The two custom exception types are `BadRequestException` (HTTP 400) and `ResourceNotFoundException` (HTTP 404). Both return a structured JSON error body with a `code` and `message` field, consistent with the OpenAPI error schema defined in `openapi.yaml`.
+- **Brand block** — `MADNESS`**`EVENTS`** logo with neon glow, tagline, and four social icons (Instagram, Twitter, Facebook, Email).
+- **Directory** column — Event Archive, DJ Roster, Vulnerability Disclosure, Press Kit.
+- **Legal** column — Privacy Policy, Terms of Service, Cookie Policy, Ticket T&C.
+- **Contact** column — email address, phone number, and physical address.
+- **Bottom bar** — copyright notice.
+
+All legal and directory links resolve to dedicated stub pages so nothing 404s.
+
+### Admin Panel
+
+`admin.html` provides a CRUD UI for the four resources behind a single login.
+
+- Tabbed-style buttons switch between **Events**, **DJs**, **Tickets**, **Merchandise**.
+- Each section renders an add/update form (with an optional `ID` field for editing existing records) and a card-grid list of current records.
+- Each card has **Edit** and **Delete** buttons wired to `PUT /api/{resource}/{id}` and `DELETE /api/{resource}/{id}`.
+- A **Logout** button in the navbar ends the session.
+
+Anonymous users navigating to `/admin.html` are redirected to the login form by Spring Security.
 
 ## Implementation
-The MadnessEvents platform is split into two modules. The `MadnessEvent-boot` module contains the fully implemented backend and frontend. The `MadnessEvents` module contains the earlier domain/repository scaffold and the Docker setup. The backend is a Spring Boot 3.2.2 application (Java 17) exposing a REST API. The frontend is a set of Thymeleaf HTML pages served by the same Spring Boot application, styled with a shared CSS file. The H2 in-memory database is used for development and testing, with sample data seeded automatically on startup.
 
 ### Backend Technology
 
-The backend of MadnessEvents is a Spring Boot application located in the `MadnessEvent-boot/` module. It was bootstrapped using the [Spring Initializr](https://start.spring.io/) and adapted to the MadnessEvent project structure and domain.
-
-**Technology stack:**
-
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| Java | 17 | Primary programming language |
-| Spring Boot | 3.2.2 | Application framework and auto-configuration |
-| Spring Web (MVC) | via Boot | REST API controllers and request handling |
-| Spring Data JPA | via Boot | Data access layer and ORM |
-| Hibernate | via Boot | JPA implementation and SQL generation |
-| H2 Database | runtime | In-memory relational database for development and testing |
-| Thymeleaf | via Boot | Server-side HTML templating (admin dashboard) |
-| Lombok | latest | Reduces boilerplate (getters, setters, builders) |
-| Spring Boot Actuator | via Boot | Health check and monitoring endpoints |
-| Spring Boot DevTools | runtime | Hot reload during development |
-| Spring Boot Test | test scope | Unit and integration testing |
-
-**Project structure:**
-
-```
-MadnessEvent-boot/
-├── pom.xml                          # Maven config (Spring Boot 3.2.2, Java 17)
-└── src/main/java/ch/fhnw/madnessevent/
-    ├── MadnessEventApplication.java # Spring Boot entry point (@SpringBootApplication)
-    ├── DataInitializer.java         # Seeds sample DJs, events and products on startup
-    ├── business/
-    │   ├── exception/               # BadRequestException, ResourceNotFoundException
-    │   └── service/                 # EventService, DjService, ProductService, TicketBookingService
-    ├── controller/
-    │   ├── dto/                     # Request/response record types (EventRequest, TicketRequest, …)
-    │   ├── ApiExceptionHandler.java # Global @RestControllerAdvice - maps exceptions to HTTP errors
-    │   ├── DashboardController.java # Thymeleaf admin dashboard
-    │   ├── EventController.java     # REST: /api/events
-    │   ├── DjController.java        # REST: /api/djs
-    │   ├── ProductController.java   # REST: /api/products
-    │   ├── TicketController.java    # REST: /api/tickets
-    │   └── HealthController.java    # REST: /api/health
-    └── data/
-        ├── domain/                  # JPA entities: Event, Dj, Product, TicketBooking
-        └── repository/              # Spring Data JPA repositories
-```
-
-**Database setup:**
-
-The application uses an H2 in-memory database configured in `src/main/resources/application.properties`:
-
-```properties
-spring.application.name=madness-event
-server.port=8080
-
-# H2 in-memory database
-spring.datasource.url=jdbc:h2:mem:madnesseventdb
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-
-# JPA / Hibernate
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=false
-
-# H2 Console (available at /h2-console during development)
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
-
-# Actuator
-management.endpoints.web.exposure.include=health,info
-management.endpoint.health.show-details=always
-```
-
-The schema is generated automatically by Hibernate on startup (`ddl-auto=update`). Sample data (3 DJs, 2 events, 2 products) is loaded at startup via `DataInitializer.java`, which implements `CommandLineRunner` and inserts records only if the tables are empty.
-
-To switch to a persistent H2 file database instead of in-memory, replace the datasource URL with:
-
-```properties
-spring.datasource.url=jdbc:h2:file:./data/madnesseventdb
-```
-
-**Dependencies added to `pom.xml`:**
-
-```xml
-<!-- Spring Boot Starters -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-thymeleaf</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
-
-<!-- Database -->
-<dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <scope>runtime</scope>
-</dependency>
-
-<!-- Lombok -->
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <optional>true</optional>
-</dependency>
-
-<!-- Dev Tools -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-devtools</artifactId>
-    <scope>runtime</scope>
-    <optional>true</optional>
-</dependency>
-```
+| Technology | Purpose |
+|---|---|
+| Java 17 | Primary programming language |
+| Spring Boot 3.2.5 | Application framework |
+| Spring Web (MVC) | REST controllers |
+| Spring Data JPA + Hibernate | ORM and data access |
+| Spring Security | Form login + role-based authorization |
+| H2 Database (in-memory) | Development database |
+| springdoc-openapi | Auto-generated Swagger UI |
 
 ### Frontend Technology
 
-The frontend of MadnessEvent is a static HTML/CSS interface served directly by Spring Boot via the `static/` and `templates/` resource folders. All pages share the same dark techno-inspired design and a consistent navigation bar with active-link highlighting.
+The frontend is plain static HTML + vanilla JavaScript + a single shared `style.css`, served directly by Spring Boot from `src/main/resources/static/`. There is no Thymeleaf, no build step, and no JavaScript framework — each page loads its data from `/api/**` via `fetch`.
 
-**Views and their API connections:**
+| Asset | Role |
+|---|---|
+| `css/style.css` | Shared dark-neon theme: navbar, cards, detail layouts, cart, login, footer |
+| `js/cart-badge.js` | LocalStorage cart helper + navbar badge |
+| `js/tickets.js`, `djs.js`, `shop.js` | List pages — fetch and render card grids |
+| `js/event-detail.js`, `dj-detail.js`, `product-detail.js` | Detail pages |
+| `js/cart.js` | Cart page rendering and Checkout |
+| `js/admin.js` | Admin CRUD operations |
 
-| View | File | Description | API endpoints used |
-|------|------|-------------|-------------------|
-| Homepage | `templates/index.html` | Entry point. Shows a hero section, featured DJ and event cards, and upcoming event previews. Links to all other pages. | None (static content at this stage) |
-| DJs page | `templates/djs.html` | Lists all DJs with name, genre, and profile cards. Hero section with tagline. | `GET /api/djs` |
-| Tickets page | `templates/ticket.html` | Displays upcoming events with date, location, and "Buy Ticket" action links. | `GET /api/events` |
-| Shop page | `templates/shop.html` | Merchandise catalog with product cards grouped by category. | `GET /api/products` |
-| Admin dashboard | served at `/dashboard` via `DashboardController` | Protected admin view with summary stats (total events, active events, attendees, revenue) and a Chart.js events-per-month line chart. | `GET /dashboard`, `GET /dashboard/stats` |
+### Project Structure
 
-**Static assets:**
-
-- `static/css/style.css` - single shared stylesheet for all pages. Implements the dark techno theme: black/dark-blue backgrounds, neon green and pink accents, white text, card-based layouts, and responsive navigation.
-- `static/js/dashboard.js` - vanilla JavaScript for the admin dashboard. Updates the live clock every second and initialises a Chart.js line chart showing event counts by month.
-
-**Theming:**
-
-All pages use a consistent visual language: dark backgrounds, bright neon-green active nav links, pink CTA buttons, image-led hero sections, and reusable card components for events, DJs, and merchandise.
-
+```
+MaddnessEventGit/
+├── pom.xml
+├── mvnw, mvnw.cmd, .mvn/wrapper/           Maven wrapper
+├── README.md
+├── openapi.yaml
+└── src/main/
+    ├── java/ch/fhnw/madnessevents/
+    │   ├── MadnessEventsApplication.java   Spring Boot entry point + seed data
+    │   ├── business/                       EventService, DjService, TicketService, MerchandiseService
+    │   ├── controller/                     EventController, DjController, TicketController, MerchandiseController, HelloController
+    │   ├── data/
+    │   │   ├── domain/                     Event, Dj, Ticket, Merchandise
+    │   │   └── repository/                 *Repository extends JpaRepository
+    │   └── security/                       SecurityConfig
+    └── resources/
+        ├── application.properties
+        └── static/
+            ├── index.html, tickets.html, djs.html, shop.html
+            ├── cart.html, login.html, admin.html
+            ├── event-detail.html, dj-detail.html, product-detail.html
+            ├── privacy.html, terms.html, cookies.html, ticket-tc.html
+            ├── vulnerability.html, press.html
+            ├── css/style.css
+            ├── js/
+            └── images/
+```
 
 ## Execution
 
-**Prerequisites:**
-- Java 17 or higher
-- Maven 3.6+ or use the included Maven wrapper (`mvnw`)
+### Run Locally
 
-**Run locally (Maven wrapper):**
+**Prerequisites:** Java 17+ (or any JDK that runs Spring Boot 3.2).
 
 ```bash
-cd MadnessEvent-boot
-./mvnw spring-boot:run        # Linux / macOS
-.\mvnw.cmd spring-boot:run   # Windows
+./mvnw spring-boot:run         # Linux / macOS
+.\mvnw.cmd spring-boot:run     # Windows PowerShell
 ```
 
-The application starts on **http://localhost:8080**.
+The app starts on **http://localhost:8080**.
 
-**Key URLs after startup:**
+**Key URLs once running:**
 
 | URL | Description |
-|-----|-------------|
-| `http://localhost:8080` | Homepage (index.html) |
-| `http://localhost:8080/djs.html` | DJs page |
-| `http://localhost:8080/tickets.html` | Tickets page |
-| `http://localhost:8080/shop.html` | Shop page |
-| `http://localhost:8080/dashboard` | Admin dashboard |
-| `http://localhost:8080/api/events` | REST: all events (JSON) |
-| `http://localhost:8080/api/djs` | REST: all DJs (JSON) |
-| `http://localhost:8080/api/products` | REST: all products (JSON) |
-| `http://localhost:8080/api/tickets` | REST: all bookings (JSON) |
-| `http://localhost:8080/api/health` | Health check endpoint |
+|---|---|
+| `http://localhost:8080/` | Home |
+| `http://localhost:8080/tickets.html` | Tickets list |
+| `http://localhost:8080/djs.html` | DJs list |
+| `http://localhost:8080/shop.html` | Merchandise list |
+| `http://localhost:8080/cart.html` | Shopping cart |
+| `http://localhost:8080/login.html` | Admin login (`admin` / `admin123`) |
+| `http://localhost:8080/admin.html` | Admin CRUD panel (requires login) |
+| `http://localhost:8080/api/events` | Events JSON |
+| `http://localhost:8080/api/djs` | DJs JSON |
+| `http://localhost:8080/api/tickets` | Tickets JSON |
+| `http://localhost:8080/api/merchandise` | Merchandise JSON |
+| `http://localhost:8080/swagger-ui.html` | Interactive API docs |
 | `http://localhost:8080/h2-console` | H2 database console |
-| `http://localhost:8080/swagger-ui.html` | Swagger API documentation |
-| `http://localhost:8080/actuator/health` | Spring Boot Actuator health |
 
 **H2 console credentials:**
 
 | Field | Value |
-|-------|-------|
-| JDBC URL | `jdbc:h2:mem:madnesseventdb` |
+|---|---|
+| JDBC URL | `jdbc:h2:mem:madnessdb` |
 | User | `sa` |
-| Password | *(leave empty)* |
+| Password | *(empty)* |
 
-**Run tests:**
+### Run in GitHub Codespaces
 
-```bash
-./mvnw test
-```
-
-**Build a JAR:**
-
-```bash
-./mvnw clean package
-java -jar target/madness-event-1.0.0-SNAPSHOT.jar
-```
-
-**Docker (using the Dockerfile in `maddness-event/`):**
-
-```bash
-cd maddness-event
-docker build -t maddness-event .
-docker run -p 8080:8080 maddness-event
-```
-
-
-### Deployment to a PaaS
-
-Deployment to a cloud platform is optional but recommended for a stable, publicly accessible endpoint. The steps below use [Render](https://render.com) as an example, which offers a free tier suitable for this project.
-
-**Prerequisites:**
-- A public GitHub repository containing the project (already satisfied).
-- A working `Dockerfile` in the `MadnessEvents/` module.
-
-**Steps on Render:**
-
-1. Go to [https://render.com](https://render.com) and sign in or create an account.
-2. Click **New → Web Service** and connect your GitHub repository (`Hong2608/MaddnessEvent`).
-3. Set the **Root directory** to `maddness-event` (the module that contains the `Dockerfile`).
-4. Render will detect the `Dockerfile` automatically. Confirm that the build and start commands are correct.
-5. Set **Instance Type** to **Free** (or Hobby for better performance).
-6. Click **Create Web Service**. Render will build and deploy the container - this typically takes 3–5 minutes.
-7. Once deployed, the unique service URL (e.g. `https://maddness-event.onrender.com`) is shown in the top-left of the dashboard. This URL stays fixed for the lifetime of the service.
-8. To connect a frontend (e.g. Budibase), use this URL as the base URL for all API calls.
-
-**Notes:**
-- The application uses an H2 in-memory database, so data is reset on every redeploy or service restart. For persistent storage, switch to a hosted database (e.g. PostgreSQL on Render) and update `application.properties` accordingly.
-- Free-tier services on Render spin down after inactivity. The first request after a pause may take 30–60 seconds to respond.
-
+1. Open the repository in Codespaces (`Code → Open with Codespaces → New codespace`).
+2. In the terminal:
+   ```bash
+   chmod +x mvnw
+   ./mvnw spring-boot:run
+   ```
+3. Codespaces auto-forwards port 8080 — click **Open in Browser** in the popup or use the **Ports** tab.
+4. If the forwarded port is Private, right-click it in the Ports tab → **Port Visibility → Public**.
 
 ## Project Management
 
 ### Roles
 
-| Role | Name | Contribution |
-|------|------|-------------|
-| Back-end developer |  | Designed and implemented the Spring Boot backend, including domain entities (Event, DJ, Product, TicketBooking), JPA repositories, business service layer with validation rules, REST controllers, global exception handling, Spring Security configuration, and the H2 database setup. Initialised the project in GitHub Codespaces and verified the backend on port 8080. |
-| Front-end developer |  | Designed and implemented the frontend HTML/CSS interface. Created all public-facing pages (Homepage, DJs, Tickets, Shop) and the admin dashboard using Thymeleaf templates and a shared `style.css`. Established the dark techno visual identity, the responsive navbar, hero sections, card-based layouts, and the Chart.js dashboard. |
+| Role | Contribution |
+|---|---|
+| Backend developer | Designed JPA entities (Event, Dj, Ticket, Merchandise), repositories, services, REST controllers, Spring Security configuration with in-memory admin user and form login. Seeded sample data via `CommandLineRunner`. |
+| Frontend developer | Built every static HTML page (Home, Tickets, DJs, Shop, Cart, Detail pages, Login, Admin, Footer stubs). Implemented the shared dark-neon CSS, the localStorage cart helper with live badge, dynamic data fetching from `/api/**`, and the cart / checkout flow. |
 
 ### Milestones
 
 | Milestone | Description |
-|-----------|-------------|
-| Analysis | Scenario ideation, use case analysis, and user story writing. |
-| Prototype Design | Creation of wireframe and interactive prototype. |
-| Domain Design | Definition of the domain model (entities and relationships). |
-| Business Logic and API Design | Definition of business logic, validation rules, and API specification (`openapi.yaml`). |
-| Data and API Implementation | Implementation of JPA entities, repositories, service layer, REST controllers, and sample data initialiser. |
-| Security and Frontend Implementation | Integration of Spring Security (in-memory users, role-based access), Thymeleaf frontend pages, and admin dashboard. |
-| (optional) Deployment | Deployment of the web application on a cloud platform (Render). |
+|---|---|
+| Analysis | Scenario, use cases, user stories. |
+| Prototype Design | Wireframes and visual identity. |
+| Domain Design | Entities and relationships. |
+| Backend Implementation | JPA entities, repositories, services, REST controllers, seed data. |
+| Security Implementation | Spring Security with form login and role-based authorization. |
+| Frontend Implementation | Static pages, dynamic data binding, detail pages, dark-neon styling. |
+| Cart & Checkout | Client-side cart with localStorage, Buy/Add buttons, cart page, checkout. |
+| Admin Panel | CRUD UI for all four resources with login protection. |
+| Footer & Legal | Site-wide footer, legal stub pages. |
 
 ### Maintainers
 
