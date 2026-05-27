@@ -1,0 +1,206 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Seite-1" id="YX4yfQ8yaFMO6r-8Crw1">
+    <mxGraphModel dx="986" dy="734" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-1" edge="1" parent="1" source="DpMpuGjiU_34Svj9TIuk-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="DpMpuGjiU_34Svj9TIuk-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-2" edge="1" parent="1" source="DpMpuGjiU_34Svj9TIuk-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="DpMpuGjiU_34Svj9TIuk-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="70" />
+              <mxPoint x="370" y="105" />
+              <mxPoint x="240" y="105" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-3" edge="1" parent="1" source="DpMpuGjiU_34Svj9TIuk-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="DpMpuGjiU_34Svj9TIuk-6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Homepage" vertex="1">
+          <mxGeometry height="60" width="127" x="340" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Tickets" vertex="1">
+          <mxGeometry height="60" width="120" x="90" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Shop" vertex="1">
+          <mxGeometry height="60" width="120" x="600" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-7" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;rounded=0;" value="" vertex="1">
+          <mxGeometry height="550" width="550" x="75" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-8" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Navigation bar - homepage, DJs, tickets, shop, )" vertex="1">
+          <mxGeometry height="60" width="500" x="90" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Welcome to Maddness Events" vertex="1">
+          <mxGeometry height="70" width="490" x="95" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-10" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Footer with contact us, FAQs, social links." vertex="1">
+          <mxGeometry height="60" width="520" x="90" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="DJs" vertex="1">
+          <mxGeometry height="60" width="120" x="180" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Newest upcoming event&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="490" x="100" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-13" edge="1" parent="1" source="DpMpuGjiU_34Svj9TIuk-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="DpMpuGjiU_34Svj9TIuk-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-14" parent="1" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=#0079D6;labelPosition=center;verticalLabelPosition=middle;verticalAlign=top;align=center;fontSize=12;outlineConnect=0;spacingTop=-6;fontColor=#FFFFFF;sketch=0;shape=mxgraph.sitemap.photo;rounded=0;" value="Photo" vertex="1">
+          <mxGeometry height="30" width="76" x="302" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-15" parent="1" style="swimlane;startSize=0;rounded=0;" value="" vertex="1">
+          <mxGeometry height="530" width="550" x="60" y="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-16" parent="DpMpuGjiU_34Svj9TIuk-15" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Navigation bar - homepage, DJs, tickets, shop &amp;amp;&amp;nbsp;&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; white-space: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20parent%3D%221%22%20style%3D%22html%3D1%3BverticalLabelPosition%3Dbottom%3Balign%3Dcenter%3BlabelBackgroundColor%3D%23ffffff%3BverticalAlign%3Dtop%3BstrokeWidth%3D2%3BstrokeColor%3Dlight-dark(%23202222%2C%2332A0FF)%3Bshadow%3D0%3Bdashed%3D0%3Bshape%3Dmxgraph.ios7.icons.shopping_cart%3B%22%20value%3D%22%22%20vertex%3D%221%22%3E%3CmxGeometry%20height%3D%2220%22%20width%3D%2223%22%20x%3D%22460%22%20y%3D%22290%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="510" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-17" parent="DpMpuGjiU_34Svj9TIuk-15" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Footer with contact us, FAQs, social links." vertex="1">
+          <mxGeometry height="60" width="500" x="20" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-18" parent="DpMpuGjiU_34Svj9TIuk-15" style="rounded=0;whiteSpace=wrap;html=1;" value="List of DJs&lt;div&gt;A&lt;/div&gt;&lt;div&gt;B&lt;/div&gt;&lt;div&gt;C&lt;/div&gt;&lt;div&gt;D&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="500" x="25" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-19" parent="DpMpuGjiU_34Svj9TIuk-15" style="shape=datastore;whiteSpace=wrap;html=1;rounded=0;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="375" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-20" parent="DpMpuGjiU_34Svj9TIuk-15" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;rounded=0;" value="" vertex="1">
+          <mxGeometry height="40" width="60" x="40" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-21" parent="DpMpuGjiU_34Svj9TIuk-15" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.filter;rounded=0;" value="" vertex="1">
+          <mxGeometry height="32.5" width="36.11" x="110" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-58" parent="DpMpuGjiU_34Svj9TIuk-15" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=light-dark(#202222,#32A0FF);shadow=0;dashed=0;shape=mxgraph.ios7.icons.shopping_cart;" value="" vertex="1">
+          <mxGeometry height="20" width="23" x="410" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-22" parent="1" style="swimlane;startSize=0;rounded=0;fillColor=#FFFFFF;" value="" vertex="1">
+          <mxGeometry height="530" width="550" x="60" y="1790" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-23" parent="DpMpuGjiU_34Svj9TIuk-22" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Navigation bar - homepage, DJs, tickets, shop &amp;amp;&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="510" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-24" parent="DpMpuGjiU_34Svj9TIuk-22" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Footer with contact us, FAQs, social links." vertex="1">
+          <mxGeometry height="60" width="500" x="20" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-25" parent="DpMpuGjiU_34Svj9TIuk-22" style="rounded=0;whiteSpace=wrap;html=1;" value="List of upcoming events&lt;br&gt;&lt;div&gt;- Basel Techno Night (Photo,date,location, DJs, ticket available, price)&lt;/div&gt;&lt;div&gt;- Zurich Neon Pulse&lt;/div&gt;&lt;div&gt;- Geneva Afterdark Session&lt;/div&gt;" vertex="1">
+          <mxGeometry height="160" width="500" x="25" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-26" parent="DpMpuGjiU_34Svj9TIuk-22" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;rounded=0;" value="" vertex="1">
+          <mxGeometry height="40" width="60" x="40" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-27" parent="DpMpuGjiU_34Svj9TIuk-22" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.filter;rounded=0;" value="" vertex="1">
+          <mxGeometry height="32.5" width="36.11" x="110" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-28" parent="DpMpuGjiU_34Svj9TIuk-22" style="shape=datastore;whiteSpace=wrap;html=1;rounded=0;" value="" vertex="1">
+          <mxGeometry height="40" width="35" x="475" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-29" parent="DpMpuGjiU_34Svj9TIuk-22" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Iconoir_Vol_1-2338/add-to-cart-648.svg;rounded=0;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="263" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-59" parent="DpMpuGjiU_34Svj9TIuk-22" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=light-dark(#202222,#32A0FF);shadow=0;dashed=0;shape=mxgraph.ios7.icons.shopping_cart;" value="" vertex="1">
+          <mxGeometry height="20" width="23" x="410" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-30" parent="1" style="swimlane;startSize=0;rounded=0;" value="" vertex="1">
+          <mxGeometry height="650" width="550" x="60" y="2370" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-31" parent="DpMpuGjiU_34Svj9TIuk-30" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Navigation bar - homepage, DJs, tickets, shop &amp;amp;&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="510" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-32" parent="DpMpuGjiU_34Svj9TIuk-30" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Footer with contact us, FAQs, social links." vertex="1">
+          <mxGeometry height="60" width="500" x="20" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-33" parent="DpMpuGjiU_34Svj9TIuk-30" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="360" width="500" x="20" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-34" parent="DpMpuGjiU_34Svj9TIuk-30" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.filter;rounded=0;" value="" vertex="1">
+          <mxGeometry height="32.5" width="36.11" x="100" y="127.5" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-35" parent="DpMpuGjiU_34Svj9TIuk-30" style="shape=datastore;whiteSpace=wrap;html=1;rounded=0;" value="" vertex="1">
+          <mxGeometry height="40" width="35" x="440" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-36" parent="DpMpuGjiU_34Svj9TIuk-30" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=20;rounded=0;" value="" vertex="1">
+          <mxGeometry height="40" width="60" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-37" parent="DpMpuGjiU_34Svj9TIuk-30" style="rounded=0;whiteSpace=wrap;html=1;" value="Apparel&lt;div&gt;T-shirt, hoodie, cap: photo,color, size, price, stock&lt;/div&gt;" vertex="1">
+          <mxGeometry height="122" width="380" x="40" y="238" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-38" parent="DpMpuGjiU_34Svj9TIuk-30" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Iconoir_Vol_1-2338/add-to-cart-648.svg;rounded=0;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="218" y="326" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-39" parent="DpMpuGjiU_34Svj9TIuk-30" style="rounded=0;whiteSpace=wrap;html=1;" value="Accesoires&lt;div&gt;Wristband. sticker, lighter: phto, price, stock&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="380" x="40" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-40" parent="DpMpuGjiU_34Svj9TIuk-30" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Iconoir_Vol_1-2338/add-to-cart-648.svg;rounded=0;" value="" vertex="1">
+          <mxGeometry height="24" width="24" x="208" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-60" parent="DpMpuGjiU_34Svj9TIuk-30" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=light-dark(#202222,#32A0FF);shadow=0;dashed=0;shape=mxgraph.ios7.icons.shopping_cart;" value="" vertex="1">
+          <mxGeometry height="20" width="23" x="410" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-41" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Homepage" vertex="1">
+          <mxGeometry height="30" width="60" x="80" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-42" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="DJs Info" vertex="1">
+          <mxGeometry height="30" width="60" x="40" y="1169" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-43" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Ticket" vertex="1">
+          <mxGeometry height="30" width="60" x="60" y="1754" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-44" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Shop" vertex="1">
+          <mxGeometry height="30" width="60" x="50" y="2340" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Cart" vertex="1">
+          <mxGeometry height="60" width="120" x="530" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-46" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;curved=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="449" y="111" />
+              <mxPoint x="580" y="111" />
+            </Array>
+            <mxPoint x="449" y="66" as="sourcePoint" />
+            <mxPoint x="580" y="141" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-47" parent="1" style="swimlane;startSize=0;rounded=0;" value="" vertex="1">
+          <mxGeometry height="540" width="550" x="80" y="3090" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-48" parent="DpMpuGjiU_34Svj9TIuk-47" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Navigation bar - homepage, DJs, tickets, shop &amp;amp;&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="510" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-49" parent="DpMpuGjiU_34Svj9TIuk-47" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=0;" value="Footer with contact us, FAQs, social links." vertex="1">
+          <mxGeometry height="60" width="500" x="15" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-50" parent="DpMpuGjiU_34Svj9TIuk-47" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.filter;rounded=0;" value="" vertex="1">
+          <mxGeometry height="32.5" width="36.11" x="100" y="127.5" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-51" parent="DpMpuGjiU_34Svj9TIuk-47" style="shape=datastore;whiteSpace=wrap;html=1;rounded=0;" value="" vertex="1">
+          <mxGeometry height="40" width="35" x="445" y="271" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-52" parent="DpMpuGjiU_34Svj9TIuk-47" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=20;rounded=0;" value="" vertex="1">
+          <mxGeometry height="40" width="60" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-53" parent="DpMpuGjiU_34Svj9TIuk-47" style="rounded=0;whiteSpace=wrap;html=1;" value="Shoping cart&lt;div&gt;Item, price, quantity, subtotal&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237));&quot;&gt;Total&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(5, 135, 235), rgb(237, 237, 237)); background-color: transparent;&quot;&gt;Checkout&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="122" width="380" x="55" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-61" parent="DpMpuGjiU_34Svj9TIuk-47" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=light-dark(#202222,#32A0FF);shadow=0;dashed=0;shape=mxgraph.ios7.icons.shopping_cart;" value="" vertex="1">
+          <mxGeometry height="20" width="23" x="410" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-54" edge="1" parent="1" source="DpMpuGjiU_34Svj9TIuk-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="DpMpuGjiU_34Svj9TIuk-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-55" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Cart" vertex="1">
+          <mxGeometry height="30" width="60" x="60" y="3050" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-56" parent="1" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=light-dark(#202222,#32A0FF);shadow=0;dashed=0;shape=mxgraph.ios7.icons.shopping_cart;" value="" vertex="1">
+          <mxGeometry height="20" width="23" x="460" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="DpMpuGjiU_34Svj9TIuk-57" parent="1" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=light-dark(#202222,#32A0FF);shadow=0;dashed=0;shape=mxgraph.ios7.icons.shopping_cart;" value="" vertex="1">
+          <mxGeometry height="20" width="23" x="607" y="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
