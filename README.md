@@ -175,58 +175,38 @@ The design direction should follow a dark, high-contrast, club-inspired visual l
 
 ### Business Logic
 
-The business logic layer is located in `MadnessEvent-boot/src/main/java/ch/fhnw/madnessevent/business/service/` and consists of four services: `EventService`, `DjService`, `ProductService`, and `TicketBookingService`. Each service sits between the REST controller and the JPA repository, enforcing validation rules and domain invariants before any data is written to the database.
+The business logic layer is implemented in `src/main/java/ch/fhnw/madnessevents/business/` and consists of four services: `EventService`, `DjService`, `MerchandiseService`, and `TicketService`.
 
----
+**Ticket Service**
 
-### Ticket Booking Service (detailed walkthrough)
-
-The ticket booking service is the most business-critical flow of the platform. It ensures that a user can only book tickets that actually exist, and that availability is decremented atomically.
+The ticket service supports CRUD operations for ticket records and validates that tickets are linked to an existing event.
 
 **Endpoint:** `POST /api/tickets`
 
-**Request body:**
+**Sample request body:**
 ```json
 {
-  "eventId": 1,
-  "quantity": 2,
-  "purchaserName": "Jane Doe"
+  "type": "Standard",
+  "price": 35.0,
+  "availability": true,
+  "event": { "id": 1 }
 }
 ```
 
-**Expected success response (HTTP 201):**
-```json
-{
-  "bookingId": 7,
-  "eventId": 1,
-  "quantity": 2,
-  "purchaserName": "Jane Doe",
-  "remainingTickets": 48,
-  "bookedAt": "2026-05-17T14:30:00"
-}
-```
-
-**Business rules enforced by `TicketBookingService.bookTickets()`:**
-
-1. **Input validation** - `eventId` and `purchaserName` must be present and non-blank. `quantity` must be at least 1. If any of these fail, a `BadRequestException` is thrown and the API returns HTTP 400 with an error message.
-2. **Event existence check** - The service calls `EventService.getEventEntityById()`, which throws `ResourceNotFoundException` (HTTP 404) if the event does not exist in the database.
-3. **Availability check** - The service compares `request.quantity()` against `event.getAvailableTickets()`. If the requested quantity exceeds available tickets, a `BadRequestException` is thrown with the message `"Only X tickets are available"`.
-4. **Atomic decrement** - If the check passes, `availableTickets` on the `Event` entity is decremented by the requested quantity and immediately persisted via `EventService.saveEvent()`. The entire method is annotated `@Transactional` to guarantee consistency.
-5. **Booking record** - A new `TicketBooking` entity is created, linked to the event, and saved. The `bookedAt` timestamp is set by a `@PrePersist` lifecycle hook on the entity.
-
-The full API documentation for all other endpoints is available at `/swagger-ui.html` when the application is running.
+**Business rules enforced by `TicketService`:**
+- `price` must be non-negative.
+- Every ticket must reference an existing event by `event.id`.
+- If the referenced event is missing, the service returns HTTP 400 with an error message.
 
 ---
 
 ### Event Service
 
-`EventService` manages the full lifecycle of events (create, read, update, delete).
+`EventService` manages event lifecycle operations.
 
-**Key business rules:**
-- `name`, `date`, and `venue` are required. `price` must be ≥ 0 and `capacity` must be ≥ 1; otherwise a `BadRequestException` is thrown.
-- When a new event is created, `availableTickets` is automatically set to equal `capacity`.
-- When an event is updated, if the new `capacity` is lower than the current `availableTickets`, the available ticket count is capped to the new capacity.
-- DJs are resolved by name via `DjService.findOrCreateByName()`. If a DJ with the given name already exists (case-insensitive), it is reused; otherwise a placeholder profile is created automatically. This prevents duplicate DJ records when creating events.
+**Key behavior:**
+- Creates, reads, updates, and deletes `Event` entities.
+- Events have `title`, `date`, `location`, and `description` fields.
 
 **Relevant endpoints:**
 | Method | Path | Description |
@@ -241,12 +221,11 @@ The full API documentation for all other endpoints is available at `/swagger-ui.
 
 ### DJ Service
 
-`DjService` manages DJ profiles and is also used internally by `EventService`.
+`DjService` manages DJ profiles.
 
-**Key business rules:**
-- `name`, `genre`, and `description` are all required; blank values throw `BadRequestException`.
-- Creating a DJ with a name that already exists (case-insensitive) throws `BadRequestException` with the message `"DJ with name X already exists"`.
-- `findOrCreateByName()` is a package-private utility used exclusively by `EventService` to auto-resolve DJs from event requests without creating duplicates.
+**Key behavior:**
+- Creates, reads, updates, and deletes `Dj` entities.
+- DJs include `stageName`, `genre`, `country`, `imageUrl`, and `bio`.
 
 **Relevant endpoints:**
 | Method | Path | Description |
@@ -259,23 +238,23 @@ The full API documentation for all other endpoints is available at `/swagger-ui.
 
 ---
 
-### Product Service
+### Merchandise Service
 
-`ProductService` manages the merchandise catalog for the shop page.
+`MerchandiseService` manages the shop catalog.
 
-**Key business rules:**
-- `name`, `description`, and `category` are required. `price` must be ≥ 0 and `stock` must be ≥ 0; otherwise a `BadRequestException` is thrown.
-- Products belong to one of two categories (defined by the `ProductCategory` enum): `APPAREL` (T-shirts, hoodies, hats, tank-tops) or `ACCESSORIES` (wristbands, stickers, lighters). Only `APPAREL` products carry `size` (XS–XXL) and `color` fields.
-- Stock is tracked per product record. The repository supports filtering by category, size, color, and minimum stock level, enabling the shop page to show only in-stock items.
+**Key behavior:**
+- Creates, reads, updates, and deletes `Merchandise` entities.
+- Merchandise items include `name`, `price`, `stock`, and `category`.
+- `price` must be non-negative and `stock` must be zero or greater.
 
 **Relevant endpoints:**
 | Method | Path | Description |
 |--------|------|-------------|
-| `GET` | `/api/products` | List all merchandise |
-| `GET` | `/api/products/{id}` | Get one product by ID |
-| `POST` | `/api/products` | Create a product (admin) |
-| `PUT` | `/api/products/{id}` | Update a product (admin) |
-| `DELETE` | `/api/products/{id}` | Delete a product (admin) |
+| `GET` | `/api/merchandise` | List all merchandise |
+| `GET` | `/api/merchandise/{id}` | Get one merchandise item by ID |
+| `POST` | `/api/merchandise` | Create merchandise (admin) |
+| `PUT` | `/api/merchandise/{id}` | Update merchandise (admin) |
+| `DELETE` | `/api/merchandise/{id}` | Delete merchandise (admin) |
 
 ---
 
@@ -283,210 +262,120 @@ The full API documentation for all other endpoints is available at `/swagger-ui.
 
 | Entity | Key fields | Relationships |
 |--------|-----------|---------------|
-| `Event` | `name`, `date`, `location`, `price`, `capacity`, `availableTickets`, `photoUrl` | Many-to-many with `DJ`; one-to-many with `TicketBooking` |
-| `DJ` | `name`, `genre`, `description`, `photoUrl` | Many-to-many with `Event` |
-| `Product` | `name`, `description`, `price`, `stock`, `category`, `color`, `size`, `photoUrl` |  |
-| `TicketBooking` | `quantity`, `purchaserName`, `bookedAt` | Many-to-one with `Event` |
+| `Event` | `title`, `date`, `location`, `description` | 1-to-many with `Ticket` |
+| `Dj` | `stageName`, `genre`, `country`, `imageUrl`, `bio` |  |
+| `Ticket` | `type`, `price`, `availability` | many-to-one with `Event` |
+| `Merchandise` | `name`, `price`, `stock`, `category` |  |
 
 ---
 
 ### Error Handling
 
-All validation errors are handled centrally by `ApiExceptionHandler`. The two custom exception types are `BadRequestException` (HTTP 400) and `ResourceNotFoundException` (HTTP 404). Both return a structured JSON error body with a `code` and `message` field, consistent with the OpenAPI error schema defined in `openapi.yaml`.
+Validation and resource errors are surfaced through Spring Web `ResponseStatusException`.
 
 ## Implementation
-The MadnessEvents platform is split into two modules. The `MadnessEvent-boot` module contains the fully implemented backend and frontend. The `MadnessEvents` module contains the earlier domain/repository scaffold and the Docker setup. The backend is a Spring Boot 3.2.2 application (Java 17) exposing a REST API. The frontend is a set of Thymeleaf HTML pages served by the same Spring Boot application, styled with a shared CSS file. The H2 in-memory database is used for development and testing, with sample data seeded automatically on startup.
+The project is a single Maven-based Spring Boot application with its source in `src/main/java/ch/fhnw/madnessevents/`.
 
 ### Backend Technology
 
-The backend of MadnessEvents is a Spring Boot application located in the `MadnessEvent-boot/` module. It was bootstrapped using the [Spring Initializr](https://start.spring.io/) and adapted to the MadnessEvent project structure and domain.
-
 **Technology stack:**
 
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| Java | 17 | Primary programming language |
-| Spring Boot | 3.2.2 | Application framework and auto-configuration |
-| Spring Web (MVC) | via Boot | REST API controllers and request handling |
-| Spring Data JPA | via Boot | Data access layer and ORM |
-| Hibernate | via Boot | JPA implementation and SQL generation |
-| H2 Database | runtime | In-memory relational database for development and testing |
-| Thymeleaf | via Boot | Server-side HTML templating (admin dashboard) |
-| Lombok | latest | Reduces boilerplate (getters, setters, builders) |
-| Spring Boot Actuator | via Boot | Health check and monitoring endpoints |
-| Spring Boot DevTools | runtime | Hot reload during development |
-| Spring Boot Test | test scope | Unit and integration testing |
+| Technology | Purpose |
+|-----------|---------|
+| Java 17 | Primary programming language |
+| Spring Boot 3.2.5 | Application framework |
+| Spring Web | REST controllers |
+| Spring Data JPA | Persistence layer |
+| H2 Database | In-memory development database |
+| Spring Security | Admin authentication and API authorization |
+| springdoc-openapi | Swagger/OpenAPI UI |
+| Spring Boot Starter Test | Unit and integration testing |
 
 **Project structure:**
 
 ```
-MadnessEvent-boot/
-├── pom.xml                          # Maven config (Spring Boot 3.2.2, Java 17)
-└── src/main/java/ch/fhnw/madnessevent/
-    ├── MadnessEventApplication.java # Spring Boot entry point (@SpringBootApplication)
-    ├── DataInitializer.java         # Seeds sample DJs, events and products on startup
-    ├── business/
-    │   ├── exception/               # BadRequestException, ResourceNotFoundException
-    │   └── service/                 # EventService, DjService, ProductService, TicketBookingService
-    ├── controller/
-    │   ├── dto/                     # Request/response record types (EventRequest, TicketRequest, …)
-    │   ├── ApiExceptionHandler.java # Global @RestControllerAdvice - maps exceptions to HTTP errors
-    │   ├── DashboardController.java # Thymeleaf admin dashboard
-    │   ├── EventController.java     # REST: /api/events
-    │   ├── DjController.java        # REST: /api/djs
-    │   ├── ProductController.java   # REST: /api/products
-    │   ├── TicketController.java    # REST: /api/tickets
-    │   └── HealthController.java    # REST: /api/health
-    └── data/
-        ├── domain/                  # JPA entities: Event, Dj, Product, TicketBooking
-        └── repository/              # Spring Data JPA repositories
+src/main/java/ch/fhnw/madnessevents/
+├── MadnessEventsApplication.java   # Spring Boot entry point and sample data loader
+├── business/                       # Service layer
+│   ├── DjService.java
+│   ├── EventService.java
+│   ├── MerchandiseService.java
+│   └── TicketService.java
+├── controller/                     # REST controllers
+│   ├── DjController.java
+│   ├── EventController.java
+│   ├── MerchandiseController.java
+│   ├── TicketController.java
+│   └── HelloController.java
+├── data/
+│   ├── domain/                     # JPA entities
+│   │   ├── Dj.java
+│   │   ├── Event.java
+│   │   ├── Merchandise.java
+│   │   └── Ticket.java
+│   └── repository/                 # Spring Data repositories
+└── security/                       # Security configuration
+    └── SecurityConfig.java
 ```
 
 **Database setup:**
 
-The application uses an H2 in-memory database configured in `src/main/resources/application.properties`:
+The application uses an H2 in-memory database configured in `src/main/resources/application.properties`.
 
-```properties
-spring.application.name=madness-event
-server.port=8080
-
-# H2 in-memory database
-spring.datasource.url=jdbc:h2:mem:madnesseventdb
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-
-# JPA / Hibernate
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=false
-
-# H2 Console (available at /h2-console during development)
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
-
-# Actuator
-management.endpoints.web.exposure.include=health,info
-management.endpoint.health.show-details=always
-```
-
-The schema is generated automatically by Hibernate on startup (`ddl-auto=update`). Sample data (3 DJs, 2 events, 2 products) is loaded at startup via `DataInitializer.java`, which implements `CommandLineRunner` and inserts records only if the tables are empty.
-
-To switch to a persistent H2 file database instead of in-memory, replace the datasource URL with:
-
-```properties
-spring.datasource.url=jdbc:h2:file:./data/madnesseventdb
-```
-
-**Dependencies added to `pom.xml`:**
-
-```xml
-<!-- Spring Boot Starters -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-thymeleaf</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
-
-<!-- Database -->
-<dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <scope>runtime</scope>
-</dependency>
-
-<!-- Lombok -->
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <optional>true</optional>
-</dependency>
-
-<!-- Dev Tools -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-devtools</artifactId>
-    <scope>runtime</scope>
-    <optional>true</optional>
-</dependency>
-```
+Hibernate builds the schema automatically on startup with `spring.jpa.hibernate.ddl-auto=update`, and sample data is seeded by `MadnessEventsApplication`.
 
 ### Frontend Technology
 
-The frontend of MadnessEvent is a static HTML/CSS interface served directly by Spring Boot via the `static/` and `templates/` resource folders. All pages share the same dark techno-inspired design and a consistent navigation bar with active-link highlighting.
+The frontend is a static HTML/CSS application served from `src/main/resources/static/`.
 
-**Views and their API connections:**
+**Pages:**
 
-| View | File | Description | API endpoints used |
-|------|------|-------------|-------------------|
-| Homepage | `templates/index.html` | Entry point. Shows a hero section, featured DJ and event cards, and upcoming event previews. Links to all other pages. | None (static content at this stage) |
-| DJs page | `templates/djs.html` | Lists all DJs with name, genre, and profile cards. Hero section with tagline. | `GET /api/djs` |
-| Tickets page | `templates/ticket.html` | Displays upcoming events with date, location, and "Buy Ticket" action links. | `GET /api/events` |
-| Shop page | `templates/shop.html` | Merchandise catalog with product cards grouped by category. | `GET /api/products` |
-| Admin dashboard | served at `/dashboard` via `DashboardController` | Protected admin view with summary stats (total events, active events, attendees, revenue) and a Chart.js events-per-month line chart. | `GET /dashboard`, `GET /dashboard/stats` |
+| Page | File |
+|------|------|
+| Homepage | `index.html` |
+| DJs | `djs.html` |
+| Tickets | `tickets.html` |
+| Shop | `shop.html` |
+| Admin | `admin.html` |
+| Login | `login.html` |
+| DJ detail | `dj-detail.html` |
+| Event detail | `event-detail.html` |
+| Product detail | `product-detail.html` |
+| Cart | `cart.html` |
 
 **Static assets:**
 
-- `static/css/style.css` - single shared stylesheet for all pages. Implements the dark techno theme: black/dark-blue backgrounds, neon green and pink accents, white text, card-based layouts, and responsive navigation.
-- `static/js/dashboard.js` - vanilla JavaScript for the admin dashboard. Updates the live clock every second and initialises a Chart.js line chart showing event counts by month.
-
-**Theming:**
-
-All pages use a consistent visual language: dark backgrounds, bright neon-green active nav links, pink CTA buttons, image-led hero sections, and reusable card components for events, DJs, and merchandise.
-
+- `css/style.css`
+- `js/` scripts
 
 ## Execution
 
 **Prerequisites:**
 - Java 17 or higher
-- Maven 3.6+ or use the included Maven wrapper (`mvnw`)
+- Maven 3.6+ or use the included Maven wrapper
 
-**Run locally (Maven wrapper):**
+**Run locally:**
 
 ```bash
-cd MadnessEvent-boot
-./mvnw spring-boot:run        # Linux / macOS
-.\mvnw.cmd spring-boot:run   # Windows
+./mvnw spring-boot:run
 ```
 
-The application starts on **http://localhost:8080**.
-
-**Key URLs after startup:**
+**Key URLs:**
 
 | URL | Description |
 |-----|-------------|
-| `http://localhost:8080` | Homepage (index.html) |
+| `http://localhost:8080/` | Homepage |
 | `http://localhost:8080/djs.html` | DJs page |
 | `http://localhost:8080/tickets.html` | Tickets page |
 | `http://localhost:8080/shop.html` | Shop page |
-| `http://localhost:8080/dashboard` | Admin dashboard |
-| `http://localhost:8080/api/events` | REST: all events (JSON) |
-| `http://localhost:8080/api/djs` | REST: all DJs (JSON) |
-| `http://localhost:8080/api/products` | REST: all products (JSON) |
-| `http://localhost:8080/api/tickets` | REST: all bookings (JSON) |
-| `http://localhost:8080/api/health` | Health check endpoint |
-| `http://localhost:8080/h2-console` | H2 database console |
-| `http://localhost:8080/swagger-ui.html` | Swagger API documentation |
-| `http://localhost:8080/actuator/health` | Spring Boot Actuator health |
-
-**H2 console credentials:**
-
-| Field | Value |
-|-------|-------|
-| JDBC URL | `jdbc:h2:mem:madnesseventdb` |
-| User | `sa` |
-| Password | *(leave empty)* |
+| `http://localhost:8080/admin.html` | Admin page |
+| `http://localhost:8080/login.html` | Login page |
+| `http://localhost:8080/api/events` | REST: events |
+| `http://localhost:8080/api/djs` | REST: DJs |
+| `http://localhost:8080/api/tickets` | REST: tickets |
+| `http://localhost:8080/api/merchandise` | REST: merchandise |
+| `http://localhost:8080/swagger-ui.html` | OpenAPI UI |
+| `http://localhost:8080/h2-console` | H2 console |
 
 **Run tests:**
 
@@ -494,72 +383,15 @@ The application starts on **http://localhost:8080**.
 ./mvnw test
 ```
 
-**Build a JAR:**
+**Build:**
 
 ```bash
 ./mvnw clean package
-java -jar target/madness-event-1.0.0-SNAPSHOT.jar
 ```
 
-**Docker (using the Dockerfile in `maddness-event/`):**
+**Optional run JAR:**
 
 ```bash
-cd maddness-event
-docker build -t maddness-event .
-docker run -p 8080:8080 maddness-event
+java -jar target/madnessevent-0.0.1-SNAPSHOT.jar
 ```
 
-
-### Deployment to a PaaS
-
-Deployment to a cloud platform is optional but recommended for a stable, publicly accessible endpoint. The steps below use [Render](https://render.com) as an example, which offers a free tier suitable for this project.
-
-**Prerequisites:**
-- A public GitHub repository containing the project (already satisfied).
-- A working `Dockerfile` in the `MadnessEvents/` module.
-
-**Steps on Render:**
-
-1. Go to [https://render.com](https://render.com) and sign in or create an account.
-2. Click **New → Web Service** and connect your GitHub repository (`Hong2608/MaddnessEvent`).
-3. Set the **Root directory** to `maddness-event` (the module that contains the `Dockerfile`).
-4. Render will detect the `Dockerfile` automatically. Confirm that the build and start commands are correct.
-5. Set **Instance Type** to **Free** (or Hobby for better performance).
-6. Click **Create Web Service**. Render will build and deploy the container - this typically takes 3–5 minutes.
-7. Once deployed, the unique service URL (e.g. `https://maddness-event.onrender.com`) is shown in the top-left of the dashboard. This URL stays fixed for the lifetime of the service.
-8. To connect a frontend (e.g. Budibase), use this URL as the base URL for all API calls.
-
-**Notes:**
-- The application uses an H2 in-memory database, so data is reset on every redeploy or service restart. For persistent storage, switch to a hosted database (e.g. PostgreSQL on Render) and update `application.properties` accordingly.
-- Free-tier services on Render spin down after inactivity. The first request after a pause may take 30–60 seconds to respond.
-
-
-## Project Management
-
-### Roles
-
-| Role | Name | Contribution |
-|------|------|-------------|
-| Back-end developer |  | Designed and implemented the Spring Boot backend, including domain entities (Event, DJ, Product, TicketBooking), JPA repositories, business service layer with validation rules, REST controllers, global exception handling, Spring Security configuration, and the H2 database setup. Initialised the project in GitHub Codespaces and verified the backend on port 8080. |
-| Front-end developer |  | Designed and implemented the frontend HTML/CSS interface. Created all public-facing pages (Homepage, DJs, Tickets, Shop) and the admin dashboard using Thymeleaf templates and a shared `style.css`. Established the dark techno visual identity, the responsive navbar, hero sections, card-based layouts, and the Chart.js dashboard. |
-
-### Milestones
-
-| Milestone | Description |
-|-----------|-------------|
-| Analysis | Scenario ideation, use case analysis, and user story writing. |
-| Prototype Design | Creation of wireframe and interactive prototype. |
-| Domain Design | Definition of the domain model (entities and relationships). |
-| Business Logic and API Design | Definition of business logic, validation rules, and API specification (`openapi.yaml`). |
-| Data and API Implementation | Implementation of JPA entities, repositories, service layer, REST controllers, and sample data initialiser. |
-| Security and Frontend Implementation | Integration of Spring Security (in-memory users, role-based access), Thymeleaf frontend pages, and admin dashboard. |
-| (optional) Deployment | Deployment of the web application on a cloud platform (Render). |
-
-### Maintainers
-
-- Charuta Pande
-- Devid Montecchiari
-
-### License
-
-Apache License, Version 2.0
