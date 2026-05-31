@@ -131,12 +131,12 @@ The overall goal of the design is to create a consistent digital identity for Ma
 
 ### Wireframe
 
-<img width="1464" height="561" alt="image" src="https://github.com/user-attachments/assets/4cd9be89-80ee-4e71-9f47-17f0d6a26f1c" />
-<img width="1086" height="1142" alt="image" src="https://github.com/user-attachments/assets/a829d9a4-b48b-4414-99a8-8c25f1c95232" />
-<img width="1116" height="1131" alt="image" src="https://github.com/user-attachments/assets/d9d40786-a22a-4d29-b1b8-84e1fc1e642b" />
-<img width="1115" height="1113" alt="image" src="https://github.com/user-attachments/assets/be3549ec-350c-4730-b8a7-a56436308bdd" />
-<img width="1091" height="1334" alt="image" src="https://github.com/user-attachments/assets/9f36380e-3f8f-4e67-864d-40195e094138" />
-
+<img width="1369" height="459" alt="image" src="https://github.com/user-attachments/assets/2ded8a30-7959-4e5d-834b-5a82efc68caa" />
+<img width="1212" height="1302" alt="image" src="https://github.com/user-attachments/assets/845d0ef9-5917-4a6e-aa57-c6f6c4c670d3" />
+<img width="1214" height="1221" alt="image" src="https://github.com/user-attachments/assets/4303b150-1bda-4aea-8aa3-99f8460b9e0f" />
+<img width="1192" height="1199" alt="image" src="https://github.com/user-attachments/assets/5f826ae3-8475-436c-9365-1d961cae3a36" />
+<img width="1221" height="1466" alt="image" src="https://github.com/user-attachments/assets/918fc15d-2732-4096-8b28-a82f68dd45e9" />
+<img width="1211" height="1279" alt="image" src="https://github.com/user-attachments/assets/34877688-85ce-4c5b-89fd-06f69d3585a8" />
 
 ### Prototype
 
@@ -148,6 +148,7 @@ The prototype should use a consistent navigation bar on all main pages. The navi
 - `DJs`
 - `Tickets`
 - `Shop`
+- `Cart`
 
 The prototype should include these main screens:
 
@@ -155,6 +156,7 @@ The prototype should include these main screens:
 2. `DJs page`: The DJs page should present a list of DJs. Each DJ entry should lead to DJ information, so visitors can learn more about the performers connected to the events.
 3. `Tickets page`: The tickets page should show the upcoming events. Each event card should include a photo, date, location, DJ, number of tickets available, and price. This page supports the main ticket discovery and booking flow.
 4. `Shop page`: The shop page should present MadnessEvent merchandise. It should include product categories such as apparel and accessories. Apparel examples include T-shirts, hoodies, hats, headwear, and tank tops. Accessory examples include branded hats, wristbands, stickers, and lighters. Product cards should show a photo, deschription, color, size, and price.
+5. `Cart page`: The cart page should show the quantity, price, subtotal and total price when user want to buy ticket and merchandise product, user can also adjust the quantity and proceed to checkout.
 
 Each main page should also include a footer with `Contact us`, `FAQs`, and social media links. This keeps the user journey consistent and gives visitors access to basic support and communication options from every page.
 
