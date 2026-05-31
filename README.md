@@ -397,3 +397,63 @@ The frontend is a static HTML/CSS application served from `src/main/resources/st
 java -jar target/madnessevent-0.0.1-SNAPSHOT.jar
 ```
 
+### Deployment
+
+The application is deployed on [Render](https://render.com) and accessible at:
+
+**[https://maddnessevent.onrender.com](https://maddnessevent.onrender.com)**
+
+> 
+> Note: The free instance will spin down with inactivity. The first request after a period of no use may take up to 50 seconds to wake up.
+> 
+
+#### Deployment Steps
+
+1. Added a `Dockerfile` to the project root (same level as `pom.xml`)
+
+2. Pushed the repository to GitHub at `https://github.com/Hong2608/MaddnessEvent`
+
+3. Logged in to [Render](https://dashboard.render.com) with GitHub credentials
+
+4. Created a new **Web Service** → Build and deploy from a Git repository
+
+5. Selected the `Hong2608/MaddnessEvent` repository
+
+6. Set Language to **Docker**, Branch to **main**, Region to **Frankfurt (EU Central)**
+
+7. Selected Instance Type **Free**
+
+8. Clicked **Deploy Web Service** — build and deployment completed automatically
+
+## Project Management
+
+### Roles
+
+| Role | Name | Contribution |
+|------|------|-------------|
+| Back-end developer |  | Implemented the Spring Boot backend: JPA entities in `src/main/java/ch/fhnw/madnessevents/data/domain`, Spring Data repositories in `data/repository`, service layer (`EventService`, `DjService`, `TicketService`, `MerchandiseService`) in `business/`, REST controllers in `controller/`, global exception handling via `ResponseStatusException`, security configuration in `security/SecurityConfig.java`, and sample data initialiser in `MadnessEventsApplication`. Configured H2 in-memory DB for development and exposed REST endpoints under `/api/**`. |
+| Front-end developer |  | Implemented the frontend as static HTML/CSS/JS served from `src/main/resources/static/` (pages: `index.html`, `djs.html`, `tickets.html`, `shop.html`, `admin.html`, etc.), a shared `css/style.css`, and interactive scripts in `js/`. The UI follows the dark techno theme, responsive navbar, hero sections, card-based layouts, and client-side cart/badge behaviour in `js/`. |
+| DevOps / Deployment |  | Added `Dockerfile` for container builds and configured deployment on Render (instructions in this README). Responsible for build configuration and provisioning the Render Web Service. |
+| QA / Tester |  | Performed manual verification of UI pages and API endpoints; validated sample data and basic flows (events listing, ticket creation via API, merchandise listing). Automated tests not currently present in the repository. |
+
+### Milestones
+
+| Milestone | Description |
+|-----------|-------------|
+| Analysis | Scenario ideation, use case analysis, and user story writing. |
+| Prototype Design | Creation of wireframe and interactive prototype. |
+| Domain Design | Definition of the domain model (entities and relationships). |
+| Business Logic and API Design | Definition of business logic, validation rules, and API specification (`openapi.yaml`). |
+| Data and API Implementation | Implementation of JPA entities, repositories, service layer, REST controllers, and sample data initialiser. |
+| Security and Frontend Implementation | Integration of Spring Security (in-memory users, role-based access), static frontend pages served from `src/main/resources/static/`, and admin dashboard. |
+| Deployment | Deployment of the web application on a cloud platform (Render). |
+
+### Maintainers
+
+- Devid Montecchiari
+
+### License
+
+Apache License, Version 2.0
+
+
