@@ -82,10 +82,10 @@ In later phases, the platform can evolve with more advanced features such as acc
 - UC-13 [Manage DJs] Admin can create, edit, and delete DJ profiles.
 
 ### Design
-The design of “MaddnessEvent” is based on a strong and recognizable corporate identity that reflects the atmosphere of techno and rave events. The website uses a dark visual style to create a club-inspired look and to strengthen the premium nightlife feeling of the brand. This helps distinguish Madness-Events from generic event websites and supports a more immersive user experience.
+The design of “MadnessEvent” is based on a strong and recognizable corporate identity that reflects the atmosphere of techno and rave events. The website uses a dark visual style to create a club-inspired look and to strengthen the premium nightlife feeling of the brand. This helps distinguish Madness-Events from generic event websites and supports a more immersive user experience.
 
 ### Corporate Identity (CI)
-The website is designed to communicate MaddnessEvent consistently across all main pages. The design choices were made to support a strong event-oriented identity and a memorable first impression.
+The website is designed to communicate MadnessEvent consistently across all main pages. The design choices were made to support a strong event-oriented identity and a memorable first impression.
 
 ### Color Scheme
 The selected color palette is based on:
