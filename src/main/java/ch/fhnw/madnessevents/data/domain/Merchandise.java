@@ -16,16 +16,18 @@ public class Merchandise {
     private double price;
     private int stock;
     private String category;
+    private String size;
 
     public Merchandise() {
     }
 
-    public Merchandise(Long id, String name, double price, int stock, String category) {
+    public Merchandise(Long id, String name, double price, int stock, String category, String size) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.stock = stock;
         this.category = category;
+        this.size = size;
     }
 
     public Long getId() {
@@ -66,5 +68,13 @@ public class Merchandise {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 }

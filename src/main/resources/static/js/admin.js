@@ -19,7 +19,7 @@ const apiConfig = {
     merchandise: {
         url: "/api/merchandise",
         title: "Merchandise",
-        fields: ["name", "price", "stock", "category", "imageUrl"]
+        fields: ["name", "price", "stock", "category", "size", "imageUrl"]
     }
 };
 
@@ -120,6 +120,7 @@ function createCardHtml(section, item) {
             <h3>${item.name || "Unnamed item"}</h3>
             <p class="event-location">CHF ${item.price}</p>
             <p class="event-location">${item.stock} in stock</p>
+            <p class="event-location">Size: ${item.size || "N/A"}</p>
             ${adminActions(item.id)}
         `;
     }

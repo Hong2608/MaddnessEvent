@@ -30,6 +30,14 @@
                 "<p class='detail-meta'>💰 CHF " + esc(p.price) + "</p>" +
                 "<p class='detail-meta'>📦 " + (soldOut ? 'Sold out' : p.stock + ' in stock') + "</p>" +
                 "<p class='detail-description'>" + esc(p.description || 'Premium MadnessEvents merchandise. Limited drop, exclusive design.') + "</p>" +
+                "<div class='detail-meta'>" +
+                    "<label for='selected-size'>Size</label> " +
+                    "<select id='selected-size'>" +
+                        "<option value='S'>S</option>" +
+                        "<option value='M'>M</option>" +
+                        "<option value='L'>L</option>" +
+                    "</select>" +
+                "</div>" +
                 "<button class='event-link buy-btn buy-large' " + (soldOut ? "disabled" : "") +
                     " data-id='m" + p.id + "' data-name=\"" + esc(p.name) + "\"" +
                     " data-price='" + p.price + "' data-photo=\"" + esc(photo) + "\">" +
@@ -37,6 +45,26 @@
                 "</button> " +
                 "<a class='event-link secondary-btn' href='shop.html'>&laquo; Back to shop</a>" +
             "</div>";
+
+        const sizeSelect = wrap.querySelector('#selected-size');
+        if (sizeSelect && p.size) {
+            sizeSelect.value = p.size;
+        }
+
+        const btn = wrap.querySelector('.buy-btn');
+        if (btn) btn.addEventListener('click', function () {
+            if (btn.disabled) return;
+            const selectedSize = sizeSelect ? sizeSelect.value : p.size || 'M';
+            window.Cart.add({
+                id: btn.dataset.id,
+                name: btn.dataset.name,
+                price: Number(btn.dataset.price),
+                photo: btn.dataset.photo,
+                type: 'product',
+                size: selectedSize
+            });
+            location.href = 'cart.html';
+        });
 
         const btn = wrap.querySelector('.buy-btn');
         if (btn) btn.addEventListener('click', function () {

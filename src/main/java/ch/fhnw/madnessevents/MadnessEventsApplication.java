@@ -68,12 +68,12 @@ public class MadnessEventsApplication {
 
             // ---------- Merchandise ----------
             if (merchandiseRepository.count() == 0) {
-                merchandiseRepository.save(new Merchandise(null, "Madness Black Tee", 29.90, 80, "Apparel"));
-                merchandiseRepository.save(new Merchandise(null, "Neon Pulse Hoodie", 69.00, 40, "Apparel"));
-                merchandiseRepository.save(new Merchandise(null, "Basel Rave Cap", 24.90, 120, "Apparel"));
-                merchandiseRepository.save(new Merchandise(null, "MadnessEvent Wristband", 9.90, 300, "Accessories"));
-                merchandiseRepository.save(new Merchandise(null, "Techno Sticker Pack", 7.50, 500, "Accessories"));
-                merchandiseRepository.save(new Merchandise(null, "Neon Lighter", 12.00, 150, "Accessories"));
+                merchandiseRepository.save(new Merchandise(null, "Madness Black Tee", 29.90, 80, "Apparel", "M"));
+                merchandiseRepository.save(new Merchandise(null, "Neon Pulse Hoodie", 69.00, 40, "Apparel", "L"));
+                merchandiseRepository.save(new Merchandise(null, "Basel Rave Cap", 24.90, 120, "Apparel", "M"));
+                merchandiseRepository.save(new Merchandise(null, "MadnessEvent Wristband", 9.90, 300, "Accessories", "M"));
+                merchandiseRepository.save(new Merchandise(null, "Techno Sticker Pack", 7.50, 500, "Accessories", "M"));
+                merchandiseRepository.save(new Merchandise(null, "Neon Lighter", 12.00, 150, "Accessories", "M"));
             }
         };
     }

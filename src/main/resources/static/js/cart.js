@@ -33,7 +33,7 @@
                     (photo ? "<div class='cart-thumb' style=\"background-image: url('" + esc(photo) + "')\"></div>" : "") +
                     "<div>" +
                         "<div class='cart-item-name'>" + esc(item.name) + "</div>" +
-                        "<div class='cart-item-type'>" + typeLabel + "</div>" +
+                        "<div class='cart-item-type'>" + typeLabel + (item.size ? " • Size: " + esc(item.size) : "") + "</div>" +
                     "</div>" +
                 "</td>" +
                 "<td>" + Number(item.price).toFixed(2) + "</td>" +
