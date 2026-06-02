@@ -433,6 +433,11 @@ button.buy-btn[disabled] { background: #555; cursor: not-allowed; color: #ccc; }
 .detail-body h1 { color: #fff; font-size: 40px; margin: 8px 0 18px; line-height: 1.1; }
 .detail-meta { color: #b8b8c7; margin: 6px 0; font-size: 16px; }
 .detail-description { color: #d6d6e0; line-height: 1.7; margin: 22px 0; font-size: 16px; }
+.size-options { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+.size-options .size-label { color: #b8b8c7; font-size: 16px; font-weight: 700; }
+.size-btn { background: transparent; color: #fff; border: 1px solid #76ff7a; padding: 8px 14px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+.size-btn:hover { background: rgba(118,255,122,0.14); }
+.size-btn.selected { background: #76ff7a; color: #000; border-color: #76ff7a; }
 
 /* ===== Cart ===== */
 .cart-link { display: inline-flex; align-items: center; }

@@ -38,9 +38,9 @@
                 "</td>" +
                 "<td>" + Number(item.price).toFixed(2) + "</td>" +
                 "<td>" +
-                    "<button class='qty-btn' data-id='" + item.id + "' data-delta='-1'>-</button>" +
+                    "<button class='qty-btn' data-id='" + item.key + "' data-delta='-1'>-</button>" +
                     "<span class='qty-val'>" + item.qty + "</span>" +
-                    "<button class='qty-btn' data-id='" + item.id + "' data-delta='1'>+</button>" +
+                    "<button class='qty-btn' data-id='" + item.key + "' data-delta='1'>+</button>" +
                 "</td>" +
                 "<td>" + (item.qty * Number(item.price)).toFixed(2) + "</td>";
             rowsEl.appendChild(row);
@@ -53,7 +53,7 @@
         if (!qtyBtn) return;
         const id = qtyBtn.dataset.id;
         const delta = Number(qtyBtn.dataset.delta);
-        const item = window.Cart.read().find(i => String(i.id) === String(id));
+        const item = window.Cart.read().find(i => String(i.key) === String(id));
         if (item) window.Cart.setQty(id, item.qty + delta);
         render();
     });
