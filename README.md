@@ -448,6 +448,10 @@ The application is deployed on [Render](https://render.com) and accessible at:
 | Security and Frontend Implementation | Integration of Spring Security (in-memory users, role-based access), static frontend pages served from `src/main/resources/static/`, and admin dashboard. |
 | Deployment | Deployment of the web application on a cloud platform (Render). |
 
+### Link to the presentation
+
+https://tube.switch.ch/videos/rXGFt6zSi9
+
 ### Maintainers
 
 - Devid Montecchiari
